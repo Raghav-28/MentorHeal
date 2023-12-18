@@ -6,7 +6,10 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Carddata from "./Data";
 import { useEffect } from "react";
 import MainLogo from "../assets/MainLogo.png";
-const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
+import { auth, logout } from "../Firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
   // state handlers
   const mentorjwt = localStorage.getItem("mentorjwt");
   const [toggle, setToggle] = useState(false);
@@ -14,7 +17,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
   const [more, setMore] = useState(false);
   const [scroll, setScroll] = useState(false);
 
-  const user = localStorage.getItem("userToken");
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -74,7 +77,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
                           className="transition duration-300 ease-in-out cursor-pointer"
                           key={index}
                         >
-                        {" "}
+                          {" "}
                           <Link
                             key={index}
                             to={`/${item.Title}`}
@@ -139,14 +142,21 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
                 </div>
               </div>
               {/* className="px-5  text-white cursor-pointer bg-gradient-to-l from-cyan-400 via-cyan-400 to-cyan-300 py-1.5 rounded-full" */}
-              {user ? null : (
+              {user ? (
+                <li
+                  className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white"
+                  onClick={logout}
+                >
+                  Logout
+                </li>
+              ) : (
                 <li className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white">
-                  <Link to="/signup"> User Signup </Link>
+                  <Link to="/join"> Login/Signup </Link>
                 </li>
               )}
               {mentorjwt ? null : (
                 <li className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white">
-                  <Link to="/join">Join as Mentor</Link>
+                  <Link to="/join-as-mentor">Join as Mentor</Link>
                 </li>
               )}
             </ul>
@@ -216,8 +226,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
                 <li className="cursor-pointer">
                   <Link to="/mentors"> Mentors </Link>
                 </li>
-               
-               
+
                 <li
                   onClick={() => {
                     setdropdown(!dropdown);
@@ -238,14 +247,18 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial ,  }) => {
                       About Us
                     </p>
                   </Link>
-                  {user ? null : (
+                  {user ? (
+                    <li className="cursor-pointer" onClick={logout}>
+                      Logout
+                    </li>
+                  ) : (
                     <li className="cursor-pointer">
-                      <Link to="/signup"> User Signup </Link>
+                      <Link to="/join"> Login/Signup </Link>
                     </li>
                   )}
                   {mentorjwt ? null : (
                     <li value="cursor-pointer transition ease-in-out duration-300">
-                      <Link to="/join">Join as Mentor</Link>
+                      <Link to="/join-as-mentor">Join as Mentor</Link>
                     </li>
                   )}
                   <p value="cursor-pointer transition ease-in-out duration-300">

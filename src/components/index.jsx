@@ -14,6 +14,8 @@ import Steps from "./Steps";
 import LatestBlogs from "./LatestBlogs";
 import Form from "./Form";
 import { Card, FirstCard } from "./Card";
+import Login from "./Login";
+import Register from "./Register";
 
 export {
   Card,
@@ -33,4 +35,6 @@ export {
   Events,
   Appointment,
   Transformation,
+  Login,
+  Register,
 };

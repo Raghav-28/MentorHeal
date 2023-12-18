@@ -8,7 +8,7 @@ import { Loader, NavBar, Footer } from "../../components/index";
 export default function FindMentors() {
   const [filterCategeory, setfilterCategeory] = useState();
 
-  const docref = collection(db, "MENTORS");
+  const docref = collection(db, "mentors");
   const [docs, loading, error] = useCollectionData(docref);
 
   if (error) {
@@ -18,7 +18,7 @@ export default function FindMentors() {
   return (
     <>
       {loading ? (
-        <Loader text={"Please wait"} />
+        <Loader />
       ) : (
         <main>
           <NavBar />

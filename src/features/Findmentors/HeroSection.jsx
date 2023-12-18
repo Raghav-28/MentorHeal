@@ -1,12 +1,13 @@
 import React from "react";
 import Data from "../../Data/MentorShipCategories";
 
-export default function HeroSection({ setfilterCategeory }) {
+const HeroSection = ({ setfilterCategeory }) => {
   return (
     <div className="pt-20 bg-[#4a7999]">
       <div className="pt-10 space-y-5 text-center text-white">
         <h1 className="text-lg md:text-xl">
-        Connect with experienced, qualified and certified mentors across the country
+          Connect with experienced, qualified and certified mentors across the
+          country
         </h1>
         <h1 className="text-2xl md:text-3xl">
           What do you want to discuss about?
@@ -29,4 +30,6 @@ export default function HeroSection({ setfilterCategeory }) {
       </div>
     </div>
   );
-}
+};
+
+export default HeroSection;

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Mentors({ filterCategeory, mentors }) {
+
+const Mentors = ({ filterCategeory, mentors }) => {
+  console.log(mentors);
   return (
     <>
       <section className="grid justify-center grid-cols-1 gap-6 px-3 my-20 lg:px-10 md:grid-cols-2 lg:grid-cols-3">
@@ -19,24 +21,26 @@ export default function Mentors({ filterCategeory, mentors }) {
           .map((_, i) => {
             return (
               <React.Fragment key={i}>
-                <div className="  p-7 shadow-xl  cursor-pointer shadow-gray-200 border-[1px] border-gray-200 rounded-lg">
+                <div className="p-7 shadow-xl  cursor-pointer shadow-gray-200 border-[1px] border-gray-200 rounded-lg">
                   <div className="flex gap-5 ">
                     <div>
                       <img
                         className="object-cover w-40 h-40 rounded-full"
-                        src={_.image}
-                        alt={_.image}
+                        src={_.photo}
+                        alt={_.name}
                       />
                     </div>
                     <div>
                       <h1 className="text-lg font-bold text-[#636363]">
-                        {_.Name}
+                        {_.name}
                       </h1>
                       <p className="mt-2 text-sm font-semibold text-gray-500">
-                        {_.Categeory}
+                        {_.category.map((cat, catKey) => (
+                          <span key={catKey}>{cat.toUpperCase()}, </span>
+                        ))}
                       </p>
                       <p className="mt-3 text-xs text-gray-500">
-                        ({_.Rating}) ⭐⭐⭐⭐⭐
+                        {_.rating ? `Rated ${_.rating} ⭐` : "N/A"}
                       </p>
                       <p className="mt-1 text-sm font-semibold text-gray-500">
                         Conversations : {_.Conversation}
@@ -44,7 +48,7 @@ export default function Mentors({ filterCategeory, mentors }) {
                     </div>
                   </div>
                   <div className="mt-5 space-y-2">
-                    <h1 className="text-xs ">
+                    {/* <h1 className="text-xs ">
                       <span className="font-semibold text-gray-500">
                         Next Available Appointment{" "}
                       </span>{" "}
@@ -52,7 +56,7 @@ export default function Mentors({ filterCategeory, mentors }) {
                       <span className="text-slate-500">
                         {_.NextAppointment}
                       </span>
-                    </h1>
+                    </h1> */}
                     <p className="text-sm leading-6 text-gray-500 font-">
                       {_.bio}
                     </p>
@@ -71,4 +75,6 @@ export default function Mentors({ filterCategeory, mentors }) {
       </section>
     </>
   );
-}
+};
+
+export default Mentors;
