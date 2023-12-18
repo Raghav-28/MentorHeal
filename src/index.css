@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    font-family: 'Kanit', serif;
+}
+p {
+    font-family: 'Kanit', serif;
+}
+
+span {
+    font-family: 'Kanit', serif;
+
+}
+
+li {
+    font-family: 'Kanit', serif;
+
+}
