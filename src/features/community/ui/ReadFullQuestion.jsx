@@ -6,7 +6,7 @@ import { useState } from "react";
 import ReplyModel from "../ReplyModel";
 import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../../Firebase";
+import { db } from "../../../config/firebase";
 
 export default function ReadFullQuestion() {
   const data = useLocation();

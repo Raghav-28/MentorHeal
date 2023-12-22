@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AskModel } from "../../index";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../../Firebase";
+import { db } from "../../../config/firebase";
 export default function PostQuestion() {
   const [popup, setpopup] = useState(false);
   const [category, setcategory] = useState();

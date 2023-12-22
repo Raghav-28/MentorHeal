@@ -6,7 +6,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Carddata from "./Data";
 import { useEffect } from "react";
 import MainLogo from "../assets/MainLogo.png";
-import { auth, logout } from "../Firebase";
+import { auth, logout } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {

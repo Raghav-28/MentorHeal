@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Mentors = ({ filterCategeory, mentors }) => {
-  console.log(mentors);
   return (
     <>
       <section className="grid justify-center grid-cols-1 gap-6 px-3 my-20 lg:px-10 md:grid-cols-2 lg:grid-cols-3">
@@ -26,7 +25,11 @@ const Mentors = ({ filterCategeory, mentors }) => {
                     <div>
                       <img
                         className="object-cover w-40 h-40 rounded-full"
-                        src={_.photo}
+                        src={
+                          _.photo
+                            ? _.photo
+                            : "https://randomuser.me/api/portraits/lego/7.jpg"
+                        }
                         alt={_.name}
                       />
                     </div>
@@ -62,10 +65,11 @@ const Mentors = ({ filterCategeory, mentors }) => {
                     </p>
                   </div>
                   <div className="flex justify-center mt-6 ">
-                    <Link to="/session">
-                      <button className="hover:bg-[#4a7999] rounded-xl border-[1px] border-green-300 hover:text-white  w-[50vw] sm:w-[40vw] md:w-[30vw] lg:w-[24vw] font-semibold ease-in-out duration-500 py-2.5">
-                        Book
-                      </button>
+                    <Link
+                      to="/session"
+                      className="hover:bg-[#4a7999] rounded-xl border-[1px] border-green-300 hover:text-white  w-[50vw] sm:w-[40vw] md:w-[30vw] lg:w-[24vw] font-semibold ease-in-out duration-500 py-2.5"
+                    >
+                      Book
                     </Link>
                   </div>
                 </div>

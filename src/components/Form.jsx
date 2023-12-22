@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { db } from "../Firebase";
+import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 const Form = () => {

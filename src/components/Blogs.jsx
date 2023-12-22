@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { db } from "../Firebase";
+import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Loader from "./Loader";
 export default function Blogs() {

@@ -6,7 +6,8 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Instagram } from "@mui/icons-material";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../Firebase";
+import { db } from "../config/firebase";
+
 const Footer = ({ Scrolltoref }) => {
   const [email, setemail] = useState("");
 
@@ -15,7 +16,7 @@ const Footer = ({ Scrolltoref }) => {
     try {
       await addDoc(collection(db, "Subscribes"), { email });
       alert("success");
-      setemail("")
+      setemail("");
     } catch (error) {
       console.log(error);
     }
@@ -145,7 +146,11 @@ const Footer = ({ Scrolltoref }) => {
               />
             </a>
             <a href="https://x.com/MentorHeal">
-            <FaXTwitter color="" size={30} className="p-1 bg-white rounded-full" />
+              <FaXTwitter
+                color=""
+                size={30}
+                className="p-1 bg-white rounded-full"
+              />
             </a>
             <a href="https://youtube.com/@MentorHealOfficial?si=3AGtMKOZFSsogBz1">
               <YouTubeIcon

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { db } from "../../../Firebase";
+import { db } from "../../../config/firebase";
 import { useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { Loader } from "../../../components";

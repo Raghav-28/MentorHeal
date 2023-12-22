@@ -1,6 +1,6 @@
 import { addDoc, setDoc } from "firebase/firestore";
 import { BsPeople } from "react-icons/bs";
-import { db } from "../../../Firebase";
+import { db } from "../../../config/firebase";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, collection } from "firebase/firestore";

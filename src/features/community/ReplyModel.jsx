@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { BsPeople } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
-import { db } from "../../Firebase";
+import { db } from "../../config/firebase";
 import { Loader } from "../../components";
 
 export default function ReplyModel({ setReply }) {

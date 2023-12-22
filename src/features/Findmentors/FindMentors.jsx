@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HeroSection, Mentors } from "./../index";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "firebase/firestore";
-import { db } from "../../Firebase";
+import { db } from "../../config/firebase";
 import { Loader, NavBar, Footer } from "../../components/index";
 
 export default function FindMentors() {

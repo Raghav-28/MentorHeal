@@ -1,12 +1,13 @@
 import React, { useId } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, db } from "../../Firebase";
+import { auth, db } from "../../config/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { NavBar } from "../../components/index";
 import GoogleIcon from "@mui/icons-material/Google";
 import emailjs from "@emailjs/browser";
 import MainLogo from "../../assets/MainLogo.png";
+
 export default function Signup() {
   const GoogleProvider = new GoogleAuthProvider();
 

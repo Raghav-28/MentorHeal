@@ -2,7 +2,7 @@ import React, { useId, useRef, useState } from "react";
 import { FiUploadCloud } from "react-icons/fi";
 import { setDoc, doc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { db, storage } from "../../Firebase";
+import { db, storage } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { BiLoaderAlt } from "react-icons/bi";
 import emailjs from "@emailjs/browser";

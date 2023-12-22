@@ -5,7 +5,7 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "../Firebase";
+} from "../config/firebase";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -13,10 +13,12 @@ const Register = () => {
   const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const history = useNavigate();
-  const register = () => {
+
+  const handleRegister = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
   };
+
   useEffect(() => {
     if (loading) return;
     if (user) history("/mentors");
@@ -47,7 +49,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button className="register__btn" onClick={register}>
+        <button className="register__btn" onClick={handleRegister}>
           Register
         </button>
         <button
