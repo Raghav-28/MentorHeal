@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../config/firebase";
+import {
+  auth,
+  logInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import GoogleIcon from "@mui/icons-material/Google";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,34 +22,50 @@ function Login() {
 
   return (
     <div className="login">
-      <h1>Login</h1>
-      <div className="login__container flex flex-col gap-4">
-        <input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+      <h1 className=" text-center text-5xl text-[#5D9ABF] mb-2">Login</h1>
+      <div className="login__container flex flex-col gap-4 items-center">
+        <div>
+          <div className="tracking-wider">EMAIL</div>
+          <input
+            type="text"
+            className="login__textBox p-3 rounded-sm w-64 border-solid border border-black"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+        </div>
+
+        <div>
+          <div className="tracking-wider">PASSWORD</div>
+          <input
+            type="password"
+            className="login__textBox p-3 rounded-sm w-64 border-solid border border-black"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <div className="text-xs text-right">
+            <Link to="/reset">Forgot Password?</Link>
+          </div>
+        </div>
+
         <button
-          className="login__btn"
+          className="login__btn font-bold w-1/12 bg-[#44708C] text-white text-lg mt-6 p-3"
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
-        </button>
-        <div>
-          <Link to="/reset">Forgot Password</Link>
+        <div class="relative flex py-1 items-center bg-white w-1/5">
+          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
+          <span class="flex-shrink mx-2 text-black">OR</span>
+          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
         </div>
+        <button
+          className="login__btn login__google bg-[#E7E9EC] w-1/5 rounded-2xl p-4 text-xl text-black border-solid border-2 border-black"
+          onClick={signInWithGoogle}
+        >
+          <GoogleIcon fontSize="large" /> &nbsp; Continue with Google
+        </button>
         <div>
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>

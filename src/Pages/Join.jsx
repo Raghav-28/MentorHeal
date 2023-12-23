@@ -3,6 +3,7 @@ import { Loader, Login, Register } from "../components";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
+import {NavBar} from "../components/index"
 
 const Join = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -16,10 +17,11 @@ const Join = () => {
 
   return (
     <>
+    <NavBar/>
       {loading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="pt-9">
           Join
           <Login />
           Or
