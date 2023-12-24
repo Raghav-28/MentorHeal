@@ -14,13 +14,13 @@ import emailjs from "@emailjs/browser";
 import moment from "moment";
 
 const BookForm = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loadingAuth, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [loadingName, setLoadingName] = useState(true);
 
   const [date, setDate] = useState("");
   const [form, setForm] = useState({
     name: "",
-    email: user?.email,
     phone: "",
     category: "Career",
   });
@@ -28,8 +28,8 @@ const BookForm = () => {
   const navigate = useNavigate();
   let today = new Date().toISOString();
   // today = today.substring(0, today.length - 8);
-  console.log(today);
-  console.log("mom", moment().format());
+  // console.log(today);
+  // console.log("mom", moment().format());
 
   const handleDateChange = (e) => {
     // console.log(e.target.value, typeof e.target.value);
@@ -44,16 +44,23 @@ const BookForm = () => {
       alert("Please Fill the form");
     } else {
       const sessionDate = new Date(date);
+      console.log(form);
       try {
         await addDoc(collection(db, "sessions"), {
           sessionDate: sessionDate,
           bookedOn: new Date(),
-          userData: form,
+          userData: {
+            name: form.name,
+            email: user?.email,
+            phone: form.phone,
+            category: form.category,
+            uid: user?.uid,
+          },
         });
         let templateParams = {
           userName: name,
           userEmail: user?.email,
-          sessionDate: date,
+          sessionDate: sessionDate,
         };
         await emailjs
           .send(
@@ -73,6 +80,7 @@ const BookForm = () => {
         alert("Thank you");
       } catch (error) {
         alert("Error, Try Again Later!");
+        console.log(error);
       }
     }
   };
@@ -91,17 +99,18 @@ const BookForm = () => {
       console.error(err);
       alert("An error occured while fetching user data");
     }
+    setLoadingName(false);
   };
 
   useEffect(() => {
-    if (loading) return;
+    if (loadingAuth) return;
     if (!user) navigate("/join");
     fetchUserName();
-  }, [user, loading]);
+  }, [user, loadingAuth]);
 
   return (
     <>
-      {loading ? (
+      {loadingAuth || loadingName ? (
         <Loader />
       ) : (
         <>
