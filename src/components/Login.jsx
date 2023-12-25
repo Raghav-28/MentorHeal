@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   auth,
@@ -55,10 +55,10 @@ function Login() {
         >
           Login
         </button>
-        <div class="relative flex py-1 items-center bg-white w-1/5">
-          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
-          <span class="flex-shrink mx-2 text-black">OR</span>
-          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
+        <div className="relative flex py-1 items-center bg-white w-1/5">
+          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
+          <span className="flex-shrink mx-2 text-black">OR</span>
+          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
         </div>
         <button
           className="login__btn login__google bg-[#E7E9EC] w-1/5 rounded-2xl p-4 text-xl text-black border-solid border-2 border-black"

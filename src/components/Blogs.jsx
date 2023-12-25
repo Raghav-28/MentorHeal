@@ -5,7 +5,8 @@ import { useState } from "react";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Loader from "./Loader";
-export default function Blogs() {
+
+const Blogs = () => {
   const navigate = useNavigate();
   const [AllBlogs, setAllBlogs] = useState(null);
   const [loading, setloading] = useState(true);
@@ -35,7 +36,9 @@ export default function Blogs() {
     <main>
       <NavBar />
       <div className="pt-20 text-center">
-        <h1 className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text text-2xl md:text-3xl">Latest Blogs</h1>
+        <h1 className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text text-2xl md:text-3xl">
+          Latest Blogs
+        </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-10 pt-5 pb-10 bg-white md:grid md:grid-cols-2 lg:grid-cols-3 place-items-center md:px-10">
         {loading ? (
@@ -65,7 +68,7 @@ export default function Blogs() {
                     />
                   </div>
                   <div>
-                    <h1 className="underline font-Kanit">{item.BLogTittle}</h1>
+                    <h1 className="underline font-kanit">{item.BLogTittle}</h1>
                   </div>
                 </div>
               </React.Fragment>
@@ -75,4 +78,6 @@ export default function Blogs() {
       </div>
     </main>
   );
-}
+};
+
+export default Blogs;

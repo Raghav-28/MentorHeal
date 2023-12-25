@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { AskModel } from "../../index";
+import { AskModel } from "../../";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
-export default function PostQuestion() {
+
+const PostQuestion = () => {
   const [popup, setpopup] = useState(false);
   const [category, setcategory] = useState();
   const [userimg, setuserimg] = useState({
@@ -94,4 +95,6 @@ export default function PostQuestion() {
       ) : null}
     </main>
   );
-}
+};
+
+export default PostQuestion;

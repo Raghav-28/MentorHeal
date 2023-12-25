@@ -1,15 +1,16 @@
-import OurStory from "./OurStory";
-import OurMission from "./OurMission";
-import HeroAbout from "./HeroAbout";
-import OurVision from "./OurVision";
-import Prophecy from "./Prophecy";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import CardAbout from "./CardAbout";
-import Appointment from "./Appointment";
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Whatsup from "./Whatsup";
+import { useLocation } from "react-router-dom";
+import {
+  Appointment,
+  CardAbout,
+  Footer,
+  HeroAbout,
+  NavBar,
+  OurMission,
+  OurStory,
+  OurVision,
+  Prophecy,
+} from "./";
 
 const AboutUs = () => {
   const location = useLocation();
@@ -23,32 +24,27 @@ const AboutUs = () => {
       <NavBar />
 
       {/* Herosection........ */}
-
       <HeroAbout />
 
-      {/* our story...... */}
-
       {/* <OurStory /> */}
+      <OurStory />
 
       {/* Our mission section..... */}
-
       <div className="lg:pt-20">
         <OurMission />
       </div>
 
       {/* Our Vision Section...... */}
-
       <OurVision />
 
       {/* MentorHeal Prophecy...... */}
-
       <Prophecy />
 
       {/* About the team...... */}
       <CardAbout />
 
-      <Whatsup />
       <Appointment />
+
       <Footer />
     </section>
   );

@@ -1,37 +1,29 @@
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import mentor from "../assets/images/mentor.jpg";
-import pro from "../assets/images/pro.png";
-import pro2 from "../assets/images/pro2.png";
-import pro4 from "../assets/images/pro4.png";
-import pro5 from "../assets/images/pro5.png";
-import pro6 from "../assets/images/pro6.png";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Appointment from "./Appointment";
-import Whatsup from "./Whatsup";
+import { Footer, NavBar, Appointment } from "./";
 import { JoinMentor } from "../features";
+import { pro1, pro2, pro4, pro5, pro6, mentor } from "../assets";
 
 const data = [
   {
-    image: pro,
+    image: pro1,
     title: "Choose how you want to mentor",
     line: "Set your own schedule, choose what types of mentees  you want to work with, and get paid for your time.",
   },
   {
     image: pro2,
-    title: "We’ll handle the details, you focus on mentoring",
-    line: "We’ll connect you with mentees , manage the scheduling process, and deal with the boring stuff, so you can focus on mentoring!",
+    title: "We'll handle the details, you focus on mentoring",
+    line: "We'll connect you with mentees , manage the scheduling process, and deal with the boring stuff, so you can focus on mentoring!",
   },
   // {
   //   image: pro3,
   //   title: "No curriculum or tasks",
-  //   line: "There’s no structured curriculum at MentorHeal, so you don’t have to keep up with courses or complete cookie-cutter tasks.",
+  //   line: "There's no structured curriculum at MentorHeal, so you don't have to keep up with courses or complete cookie-cutter tasks.",
   // },
   {
     image: pro4,
     title: "Flexibility to mentor how you want",
-    line: "As a MentorHeal mentor, you’re free to teach in your own style and customize your approach based on your mentees ’ goals.",
+    line: "As a MentorHeal mentor, you're free to teach in your own style and customize your approach based on your mentees ' goals.",
   },
   {
     image: pro5,
@@ -41,7 +33,7 @@ const data = [
   {
     image: pro6,
     title: "An amazing mentor community",
-    line: "You’ll be part of or private mentor community where you can connect with other mentors to share resources and mentoring tips.",
+    line: "You'll be part of or private mentor community where you can connect with other mentors to share resources and mentoring tips.",
   },
 ];
 
@@ -74,7 +66,7 @@ const Mentor = () => {
               of world-class mentors
             </h1>
             <p className="text-[#8ca1b3]">
-              As a MentorHeal mentor, you’ll get to provide mentorship to
+              As a MentorHeal mentor, you'll get to provide mentorship to
               mentees in your own style and on your own schedule (and get paid
               for it!).
             </p>
@@ -100,7 +92,7 @@ const Mentor = () => {
       <div className="p-8 my-4 text-center space-y-14">
         <div>
           <h1 className="text-2xl lg:text-3xl">
-            Here’s why mentor's around the world love{" "}
+            Here's why mentor's around the world love{" "}
             <span className=" text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
               mentoring
             </span>{" "}
@@ -131,7 +123,6 @@ const Mentor = () => {
         <JoinMentor />
       </div>
       <Appointment />
-      <Whatsup />
       <Footer />
     </div>
   );

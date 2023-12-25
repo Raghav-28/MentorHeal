@@ -5,7 +5,8 @@ import {
   oneonone,
   confidential,
   Community,
-} from "../assets/Why/index";
+} from "../assets";
+
 const Why = () => {
   const Data = [
     {
@@ -35,7 +36,7 @@ const Why = () => {
       <div>
         <h1 className="text-3xl font-kanit md:text-4xl ">
           Why{" "}
-          <span className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+          <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
             MentorHeal?
           </span>
         </h1>

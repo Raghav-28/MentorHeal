@@ -5,7 +5,7 @@ const OurStory = () => {
          className='grid grid-cols-1 gap-8 place-items-center md:gap-8'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-2xl font-inter text-[#00b8d3]'>OUR STORY</h1>
-          <p className='font-inter text-[22px] leading-[26px] w-[324px] '>We’re building the economic infrastructure for the internet. Businesses of every size.</p>
+          <p className='font-inter text-[22px] leading-[26px] w-[324px] '>We're building the economic infrastructure for the internet. Businesses of every size.</p>
           </div>
           <div className='flex items-center gap-6 '>
             <img src='https://i.ibb.co/C9Rh7t7/Capture.png'/>
@@ -26,7 +26,7 @@ const OurStory = () => {
           </div>
           <div className='flex flex-col gap-2'>
           <h1 className='font-semibold text-[20px] leading-6'>3. Contact monitoring</h1>
-          <p className='text-[15px] leading-5 w-[325px] lg:w-[480px] text-[#7C7C7C]'>Just import your contact list, segment your contacts and we’ll get you a detailed real-time report of their activity.</p>
+          <p className='text-[15px] leading-5 w-[325px] lg:w-[480px] text-[#7C7C7C]'>Just import your contact list, segment your contacts and we'll get you a detailed real-time report of their activity.</p>
           </div>
   
         </div>

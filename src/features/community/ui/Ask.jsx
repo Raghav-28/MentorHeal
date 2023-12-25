@@ -1,10 +1,11 @@
-import { BsPeople } from "react-icons/bs";
-import { db } from "../../../config/firebase";
-import { addDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../../config/firebase";
+import { addDoc } from "firebase/firestore";
 import { doc, getDoc, collection } from "firebase/firestore";
-export default function Ask({ setpopup }) {
+import { BsPeople } from "react-icons/bs";
+
+const Ask = ({ setpopup }) => {
   const [data, setData] = useState({
     ask: "",
     pic: "",
@@ -34,6 +35,7 @@ export default function Ask({ setpopup }) {
       navigate("/signup");
     }
   };
+
   //get user image and Name
   useEffect(() => {
     const fetchComments = async () => {
@@ -102,4 +104,6 @@ export default function Ask({ setpopup }) {
       </div>
     </div>
   );
-}
+};
+
+export default Ask;

@@ -3,7 +3,7 @@ const AllBlogs = [
     Blogimage:
       "https://media.wired.com/photos/655e01daf1c66c0a818775fe/16:9/w_1600,c_limit/samaltman-biz-GettyImages-1769720820.jpg",
     BLogTittle:
-      "Elon Musk warns ‘something scared’ OpenAI chief The board that fired Sam Altman from his role as CEO.",
+      "Elon Musk warns 'something scared' OpenAI chief The board that fired Sam Altman from his role as CEO.",
     BlogSections: [
       {
         SectionTittle:

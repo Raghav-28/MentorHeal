@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import Carddata from "./Data";
-export const Card = () => {
+import { Carddata } from "./";
+
+const Card = () => {
   return (
     <div className="grid grid-cols-1 gap-5 px-5 mt-10 md:p-8 md:grid-cols-2 lg:grid-cols-3 place-items-center">
       {Carddata.map((item, index) => {
@@ -20,13 +21,13 @@ export const Card = () => {
                   src={item.image}
                   className=" mt-4 bg-[#d1cfcf] rounded-full w-28 h-28"
                 />
-                <h1 className="text-3xl text-center font-Kanit">
+                <h1 className="text-3xl text-center font-kanit">
                   {item.Title}
                 </h1>
-                <p className="text-center lg:h-20 text-[#8ca1b3] font-Kanit  leading-6">
+                <p className="text-center lg:h-20 text-[#8ca1b3] font-kanit  leading-6">
                   {item.Para}
                 </p>
-                <p className="cursor-pointer  text-[#00b8d3] font-Kanit border-cyan-500">
+                <p className="cursor-pointer  text-[#00b8d3] font-kanit border-cyan-500">
                   Read More
                 </p>
                 {/* </div> */}
@@ -39,19 +40,19 @@ export const Card = () => {
   );
 };
 
-export const FirstCard = () => {
+const FirstCard = () => {
   return (
     <div className="px-4 bg-[#4a7999] w-[100vw]  mx-auto ">
       <section className=" my-28">
         <div className="items-center px-3 py-5 md:flex md:flex-row-reverse md:justify-around md:space-x-5 md:px-5">
           <div className="flex flex-col order-2 py-5 space-y-8 md:text-left">
-            <h1 className="text-2xl  text-white md:text-4xl md:max-w-[50vw] leading-8 font-Kanit ">
+            <h1 className="text-2xl  text-white md:text-4xl md:max-w-[50vw] leading-8 font-kanit ">
               How will{" "}
               {/* <span className="font-bold text-transparent bg-gradient-to-l from-cyan-500 via-cyan-300 to-cyan-500 bg-clip-text"> */}
               {/* </span>{" "} */}
               Mentorship help you?
             </h1>
-            <p className="text-sm text-white md:max-w-[50vw] md:text-lg leading-6 md:leading-7 font-Kanit">
+            <p className="text-sm text-white md:max-w-[50vw] md:text-lg leading-6 md:leading-7 font-kanit">
               Through the guidance and support of a mentor, individuals can gain
               valuable insights, develop new skills, and overcome obstacles that
               they may have otherwise struggled with on their own. Whether in
@@ -79,3 +80,5 @@ export const FirstCard = () => {
     </div>
   );
 };
+
+export { Card, FirstCard };

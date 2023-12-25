@@ -1,4 +1,3 @@
-import Data from './JoinPeerNetwork'
+import Data from "./JoinPeerNetwork";
 
-
-export { Data }
+export { Data };

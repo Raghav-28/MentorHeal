@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, collection } from "firebase/firestore";
 
-export default function Post({ setpopup }) {
+const Post = ({ setpopup }) => {
   const [userimg, setuserimg] = useState();
   const [data, setData] = useState({
     ask: "",
@@ -108,4 +108,6 @@ export default function Post({ setpopup }) {
       </div>
     </>
   );
-}
+};
+
+export default Post;

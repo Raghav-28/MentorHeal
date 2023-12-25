@@ -1,8 +1,7 @@
-// import Banner from "../assets/images/Banner1.png";
-export default function Events({ Scrolltoref }) {
+const Events = ({ Scrolltoref }) => {
   return (
     <>
-      <div className="mt-24 mb-6 backgound">
+      <div className="mt-24 mb-6 bg-custom-banner">
         <div className="text-white md:p-10">
           <h1 className="my-6 text-sm lg:text-3xl">
             MentorHeal Guidance Program (MGP)
@@ -24,4 +23,6 @@ export default function Events({ Scrolltoref }) {
       </div>
     </>
   );
-}
+};
+
+export default Events;

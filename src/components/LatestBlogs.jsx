@@ -5,7 +5,7 @@ import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
 
-export default function LatestBlogs() {
+const LatestBlogs = () => {
   const navigate = useNavigate();
 
   const [AllBlogs, setAllBlogs] = useState(null);
@@ -33,9 +33,9 @@ export default function LatestBlogs() {
   return (
     <>
       <div className="mt-32 text-center">
-        <h1 className="text-3xl font-Kanit md:text-4xl">
+        <h1 className="text-3xl font-kanit md:text-4xl">
           Latest on Your{" "}
-          <span className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+          <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
             MentorHeal
           </span>{" "}
           Blog
@@ -66,7 +66,7 @@ export default function LatestBlogs() {
                   />
                 </div>
                 <div>
-                  <p className="underline font-Kanit">{item.BLogTittle}</p>
+                  <p className="underline font-kanit">{item.BLogTittle}</p>
                 </div>
               </div>
             </React.Fragment>
@@ -75,11 +75,13 @@ export default function LatestBlogs() {
       </section>
       <div className="flex justify-center ">
         <Link to="/Blog">
-          <button className="py-3  text-white px-9 bg-[#4a7999] rounded-3xl font-Kanit">
-            Read More Articles 
+          <button className="py-3  text-white px-9 bg-[#4a7999] rounded-3xl font-kanit">
+            Read More Articles
           </button>
         </Link>
       </div>
     </>
   );
-}
+};
+
+export default LatestBlogs;

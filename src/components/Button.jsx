@@ -11,4 +11,5 @@ const Button = () => {
     </Link>
   );
 };
+
 export default Button;

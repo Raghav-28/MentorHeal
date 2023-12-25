@@ -1,6 +1,6 @@
-import { Ask, Guildline, Post } from "../.././index";
+import { Ask, Guideline, Post } from "../../";
 
-export default function AskModel({ category, setcategory, setpopup }) {
+const AskModel = ({ category, setcategory, setpopup }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center h-full p-3 overflow-y-scroll bg-black bg-opacity-70 backdrop-blur animate__animated animate__fadeIn ">
       <div className="p-5 bg-white w-[90vw] md:w-[60vw] lg:w-[50vw] rounded-md">
@@ -26,7 +26,7 @@ export default function AskModel({ category, setcategory, setpopup }) {
             <h1>Post</h1>
           </div>
         </div>
-        {category === "Ask" && <Guildline />}
+        {category === "Ask" && <Guideline />}
         {category === "Ask" ? (
           <Ask setpopup={setpopup} />
         ) : (
@@ -35,4 +35,6 @@ export default function AskModel({ category, setcategory, setpopup }) {
       </div>
     </div>
   );
-}
+};
+
+export default AskModel;

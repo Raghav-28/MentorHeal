@@ -1,9 +1,9 @@
+import React from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import React from "react";
 
-export default function Quote() {
+const Quote = () => {
   const quotes = [
     {
       id: 1,
@@ -42,9 +42,9 @@ export default function Quote() {
     <section className="mt-32">
       <div className="flex flex-col items-center px-5 my-10 md:px-8">
         <div>
-          <h1 className="py-4 text-3xl font-Kanit md:text-4xl">
+          <h1 className="py-4 text-3xl font-kanit md:text-4xl">
             Wellness Builds
-            <span className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+            <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
               {" "}
               Character{" "}
             </span>
@@ -64,8 +64,8 @@ export default function Quote() {
                   />
                 </div>
                 <div className="max-w-xs">
-                  <h1 className="text-lg font-Kanit">{item.name}</h1>
-                  <h1 className="text-[#8ca1b3] md:text-xl font-Kanit  leading-7 lg:leading-8">
+                  <h1 className="text-lg font-kanit">{item.name}</h1>
+                  <h1 className="text-[#8ca1b3] md:text-xl font-kanit  leading-7 lg:leading-8">
                     "{item.quote}"
                   </h1>
                 </div>
@@ -76,5 +76,6 @@ export default function Quote() {
       </Slider>
     </section>
   );
-}
+};
 
+export default Quote;

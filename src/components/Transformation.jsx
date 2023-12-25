@@ -1,8 +1,8 @@
+import React from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import React from "react";
-import NavBar from "./NavBar";
+
 const Transformation = ({ testimonialref }) => {
   const slides = [
     {
@@ -41,9 +41,9 @@ const Transformation = ({ testimonialref }) => {
         ref={testimonialref}
       >
         <div className="text-center">
-          <h1 className="py-4 text-3xl font-Kanit md:text-4xl">
+          <h1 className="py-4 text-3xl font-kanit md:text-4xl">
             Proud Stories Of{" "}
-            <span className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+            <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
               Transformation
             </span>
           </h1>
@@ -58,10 +58,10 @@ const Transformation = ({ testimonialref }) => {
             return (
               <React.Fragment key={index}>
                 <div className="max-w-md lg:max-w-none space-y-7">
-                  <p className="text-[#8ca1b3] leading-7 text-center lg:text-left font-Kanit">
+                  <p className="text-[#8ca1b3] leading-7 text-center lg:text-left font-kanit">
                     {item.story}
                   </p>
-                  <h1 className="bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] text-center  text-transparent  bg-clip-text font-Kanit my-3.5 lg:text-xl ">
+                  <h1 className="bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] text-center  text-transparent  bg-clip-text font-kanit my-3.5 lg:text-xl ">
                     {item.name}
                   </h1>
                 </div>
@@ -75,7 +75,3 @@ const Transformation = ({ testimonialref }) => {
 };
 
 export default Transformation;
-
-{
-  /**/
-}

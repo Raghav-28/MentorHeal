@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { Loader, Login, Register } from "../components";
+import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
-import {NavBar} from "../components/index"
+import { Loader, Login, NavBar, Register } from "../components";
 
 const Join = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -17,7 +16,7 @@ const Join = () => {
 
   return (
     <>
-    <NavBar/>
+      <NavBar />
       {loading ? (
         <Loader />
       ) : (

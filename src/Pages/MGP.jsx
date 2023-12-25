@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer, NavBar } from "../components";
 
-export default function MGP({ page }) {
+const MGP = ({ page }) => {
   const Events = [
     {
       image:
@@ -30,16 +30,16 @@ export default function MGP({ page }) {
       {page === "home" ? null : <NavBar />}
       {page === "home" ? (
         <div className="text-3xl text-center md:text-4xl ">
-          <h1 className="font-Kanit">
+          <h1 className="font-kanit">
             MentorHeal{" "}
-            <span className="font-Kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+            <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
               Guidance
             </span>{" "}
             Program
           </h1>
         </div>
       ) : null}
-      <div className={`flex justify-center `}>
+      <div className={`flex justify-center`}>
         <div
           className={` 
           ${
@@ -67,17 +67,21 @@ export default function MGP({ page }) {
                       page === "home" ? "max-w-xs lg:max-w-sm" : "max-w-sm"
                     } `}
                   >
-                    <h1 className="text-3xl font-Kanit md:text-4xl">
+                    <h1 className="text-3xl font-kanit md:text-4xl">
                       Save on 3 Groups
                     </h1>
-                    <p className="mt-3.5 font-Kanit text-gray-500">
+                    <p className="mt-3.5 font-kanit text-gray-500">
                       what will you get:
                     </p>
-                    {_.list.map((i) => {
-                      return <li className="mt-3.5 text-gray-500 font-Kanit">{i}</li>;
+                    {_.list.map((__, j) => {
+                      return (
+                        <li key={j} className="mt-3.5 text-gray-500 font-kanit">
+                          {__}
+                        </li>
+                      );
                     })}
-                    <button className="flex items-center justify-center px-6 py-2 mt-8 space-x-2 text-white duration-500 ease-in-out rounded-full font-Kanit bg-[#4a7999]">
-                      <h1 className="font-Kanit">Get up to {_.off}%</h1>
+                    <button className="flex items-center justify-center px-6 py-2 mt-8 space-x-2 text-white duration-500 ease-in-out rounded-full font-kanit bg-[#4a7999]">
+                      <h1 className="font-kanit">Get up to {_.off}%</h1>
                     </button>
                   </ul>
                 </div>
@@ -89,4 +93,6 @@ export default function MGP({ page }) {
       {page === "home" ? null : <Footer />}
     </section>
   );
-}
+};
+
+export default MGP;

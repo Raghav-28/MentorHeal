@@ -62,15 +62,15 @@ const Form = () => {
         <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto text-gray-900 bg-white mt-14 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 ">
           <div className="flex flex-col justify-between">
             <div>
-              <h2 className="text-4xl leading-tight text-transparent font-Kanit bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text lg:text-5xl ">
+              <h2 className="text-4xl leading-tight text-transparent font-kanit bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text lg:text-5xl ">
                 Reach out to Us!
               </h2>
               <div className="space-y-4 my-8 text-[#8ca1b3] ">
-                <p className=" font-Kanit">
+                <p className=" font-kanit">
                   If you have any concern please feel free to contact us by
                   filling up the form.
                 </p>
-                <h2 className="font-Kanit">contact@mentorheal.com</h2>
+                <h2 className="font-kanit">contact@mentorheal.com</h2>
               </div>
             </div>
             <div className="mt-8 text-center">

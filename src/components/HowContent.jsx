@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Card } from "./Card";
-import { chose, Find, Schedule, Set } from "../assets/How";
+import { chose, Find, Schedule, Set } from "../assets";
+
 const FAQs = ({ Q, children }) => {
   const [open, setOpen] = useState(false);
   const toggle = () => {
@@ -15,8 +15,8 @@ const FAQs = ({ Q, children }) => {
         className="flex items-center justify-between cursor-pointer"
         onClick={toggle}
       >
-        <h1 className="font-Kanit md:text-xl ">{Q}</h1>
-        <p>{open ? <ExpandLessIcon /> : <ExpandMoreIcon />}</p>
+        <h1 className="font-kanit md:text-xl ">{Q}</h1>
+        <p>{open ? <ExpandLess /> : <ExpandMore />}</p>
       </div>
       <div
         style={{
@@ -25,7 +25,7 @@ const FAQs = ({ Q, children }) => {
           transition: "max-height 2s ease-in-out",
         }}
       >
-        {open && <p className="font-Kanit">{children}</p>}
+        {open && <p className="font-kanit">{children}</p>}
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ const HowContent = () => {
       Ans: "The frequency of sessions depends on your needs and preferences. It is common to schedule sessions weekly, biweekly, or monthly. Discuss with your mentor to determine a schedule that works best for both of you. ",
     },
     {
-      Q: " What can I expect during a mentoring session?",
+      Q: "hat can I expect during a mentoring session?",
       Ans: "Mentoring sessions provide a safe and supportive space for open conversations. You can discuss your challenges, aspirations, and desired outcomes. Your mentor will actively listen, provide guidance, and share insights to help you on your personal growth journey.",
     },
     {
@@ -83,8 +83,11 @@ const HowContent = () => {
   return (
     <div className="pt-24 md:px-8 ">
       <div className="px-5 md:px-0">
-        <h1 className="py-5 text-3xl text-center font-Kanit lg:pl-20 lg:text-5xl lg:text-start ">
-          How it <span className="text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">Works?</span>
+        <h1 className="py-5 text-3xl text-center font-kanit lg:pl-20 lg:text-5xl lg:text-start ">
+          How it{" "}
+          <span className="text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+            Works?
+          </span>
         </h1>
         <p className="max-w-md text-justify lg:max-w-xl lg:pl-20 lg:text-lg">
           Unlock your full potential with our easy 4-step process. We&apos;ve
@@ -101,8 +104,8 @@ const HowContent = () => {
                 <div className="flex flex-col lg:flex-row rounded-lg items-start  mx-auto border-[1px] hover:shadow-md ease-in-out duration-300 cursor-pointer border-slate-300 p-5 space-y-5 lg:space-y-0 lg:space-x-5 ">
                   <img src={item.image} className="w-16 h-16w-16" alt="" />
                   <div className="space-y-3">
-                    <h1 className="text-2xl font-Kanit">{item.Tittle}</h1>
-                    <p className="leading-7 font-Kanit ">{item.Para}</p>
+                    <h1 className="text-2xl font-kanit">{item.Tittle}</h1>
+                    <p className="leading-7 font-kanit ">{item.Para}</p>
                   </div>
                 </div>
               </div>
@@ -110,8 +113,11 @@ const HowContent = () => {
           })}
         </section>
         <div className="py-8 mt-16">
-          <h1 className="text-3xl text-center lg:text-5xl font-Kanit">
-            Explore by <span className="text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">Categories</span>
+          <h1 className="text-3xl text-center lg:text-5xl font-kanit">
+            Explore by{" "}
+            <span className="text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+              Categories
+            </span>
           </h1>
         </div>
       </div>

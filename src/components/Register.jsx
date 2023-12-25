@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import GoogleIcon from '@mui/icons-material/Google';
+import GoogleIcon from "@mui/icons-material/Google";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleRegister = () => {
     if (!name) alert("Please enter name");
@@ -22,7 +22,7 @@ const Register = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (user) history("/mentors");
+    if (user) navigate("/mentors");
   }, [user, loading]);
 
   return (
@@ -50,7 +50,7 @@ const Register = () => {
         </div>
 
         <div>
-          <div className="tracking-wider" >EMAIL</div>
+          <div className="tracking-wider">EMAIL</div>
           <input
             type="email"
             className="register__textBox rounded-sm w-64 p-3 border-solid border border-black"
@@ -70,7 +70,7 @@ const Register = () => {
             placeholder="Password"
           />
         </div>
-        
+
         <button
           className="register__btn font-bold w-1/12 bg-[#44708C] text-white text-lg mt-6 p-3"
           onClick={handleRegister}
@@ -83,17 +83,16 @@ const Register = () => {
             <span>OR</span>
           </div>
         </div> */}
-        <div class="relative flex py-1 items-center bg-white w-1/5">
-          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
-          <span class="flex-shrink mx-2 text-black">OR</span>
-          <div class="flex-grow border-t-2 border-[#5D9ABF]"></div>
+        <div className="relative flex py-1 items-center bg-white w-1/5">
+          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
+          <span className="flex-shrink mx-2 text-black">OR</span>
+          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
         </div>
         <button
           className="register__btn register__google bg-[#E7E9EC] w-1/5 rounded-2xl p-4 text-xl text-black border-solid border-2 border-black"
           onClick={signInWithGoogle}
         >
-        <GoogleIcon fontSize="large"/> &nbsp;
-          Continue with Google
+          <GoogleIcon fontSize="large" /> &nbsp; Continue with Google
         </button>
       </div>
     </div>

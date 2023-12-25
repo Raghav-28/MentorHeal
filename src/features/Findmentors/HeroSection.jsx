@@ -1,5 +1,4 @@
-import React from "react";
-import Data from "../../Data/MentorShipCategories";
+import Data from "../../data/MentorShipCategories";
 
 const HeroSection = ({ setfilterCategeory }) => {
   return (

@@ -6,16 +6,17 @@ import Signup from "./UserSignup/Signup";
 import PostQuestion from "./community/ui/PostQuestion";
 import Posts from "./community/ui/Posts";
 import AskModel from "./community/ui/AskModel";
-import Guildline from "./community/ui/Guildline";
+import Guideline from "./community/ui/Guideline";
 import Ask from "./community/ui/Ask";
 import Post from "./community/ui/Post";
 import ReadFullQuestion from "./community/ui/ReadFullQuestion";
+import ReplyModel from "./community/ReplyModel";
 
 export {
   ReadFullQuestion,
   Post,
   Ask,
-  Guildline,
+  Guideline,
   AskModel,
   FindMentors,
   HeroSection,
@@ -24,4 +25,5 @@ export {
   Signup,
   PostQuestion,
   Posts,
+  ReplyModel,
 };

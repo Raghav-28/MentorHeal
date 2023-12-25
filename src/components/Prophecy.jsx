@@ -1,5 +1,4 @@
-import youth from "../assets/images/youth.jpg";
-import beacon from "../assets/images/beacon.jpg";
+import { youth, beacon } from "../assets";
 
 const Prophecy = () => {
   return (
@@ -13,10 +12,10 @@ const Prophecy = () => {
       <div className="mt-5 space-y-2 ">
         <div className="flex flex-col-reverse items-center md:flex-row md:justify-around ">
           <div className="py-5 space-y-2 ">
-            <h1 className="text-2xl lg:text-3xl text-[#4a7999] font-Kanit">
+            <h1 className="text-2xl lg:text-3xl text-[#4a7999] font-kanit">
               Enable youth empowerment
             </h1>
-            <p className="text-[#7C7C7C] font-medium text-[13px] md:text-[16.5px] lg:text-[20px] leading-6 md:leading-7 lg:leading-9 w-80 lg:w-[625px] font-Kanit">
+            <p className="text-[#7C7C7C] font-medium text-[13px] md:text-[16.5px] lg:text-[20px] leading-6 md:leading-7 lg:leading-9 w-80 lg:w-[625px] font-kanit">
               Shaping a Holistic Wellness Movement: We envision a world where
               well-being is prioritized, and individuals are equipped with the
               knowledge, tools, and mentors to navigate their wellness journeys.
@@ -29,10 +28,10 @@ const Prophecy = () => {
 
         <div className="flex flex-col-reverse items-center md:flex-row-reverse md:justify-around">
           <div className="py-5 space-y-2">
-            <h1 className="text-2xl lg:text-3xl text-[#4a7999] font-Kanit">
+            <h1 className="text-2xl lg:text-3xl text-[#4a7999] font-kanit">
               Become the beacon of learning
             </h1>
-            <p className="text-[#7C7C7C] font-medium text-[13px] md:text-[16.5px] lg:text-[20px] leading-6 md:leading-7 lg:leading-9 w-80 lg:w-[625px] font-Kanit">
+            <p className="text-[#7C7C7C] font-medium text-[13px] md:text-[16.5px] lg:text-[20px] leading-6 md:leading-7 lg:leading-9 w-80 lg:w-[625px] font-kanit">
               Inspiring Authentic Purpose: Through mentorship, we aim to guide
               individuals in exploring their unique talents, embracing their
               passions, and channeling them towards meaningful contributions.

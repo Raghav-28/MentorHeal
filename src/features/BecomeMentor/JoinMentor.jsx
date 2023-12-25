@@ -1,14 +1,15 @@
 import React, { useId, useRef, useState } from "react";
-import { FiUploadCloud } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { db, storage } from "../../config/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { db, storage } from "../../config/firebase";
-import { useNavigate } from "react-router-dom";
+import { NavBar } from "../../components";
+import Data from "../../data/MentorShipCategories";
+import { FiUploadCloud } from "react-icons/fi";
 import { BiLoaderAlt } from "react-icons/bi";
 import emailjs from "@emailjs/browser";
-import Data from "../../Data/MentorShipCategories";
-import { NavBar } from "../../components";
-export default function JoinMentor() {
+
+const JoinMentor = () => {
   const dpref = useRef(null);
   const id = useId();
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function JoinMentor() {
     Name: "",
     Phone: "",
     Email: "",
-    Categeory: "health", 
+    Categeory: "health",
     image: "",
     achievement: "",
   });
@@ -213,7 +214,8 @@ export default function JoinMentor() {
           <div className="flex justify-center mb-5 mt-11">
             <button
               onClick={uploadImage}
-              className="px-10 py-2 text-sm tracking-wide text-black bg-white rounded-full font-Kanit">
+              className="px-10 py-2 text-sm tracking-wide text-black bg-white rounded-full font-kanit"
+            >
               {loader ? (
                 <BiLoaderAlt
                   size={27}
@@ -229,4 +231,6 @@ export default function JoinMentor() {
       </div>
     </>
   );
-}
+};
+
+export default JoinMentor;

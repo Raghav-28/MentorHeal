@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import {  NavBar } from "../components/index";
-import { Data } from "../Data/index";
+import React, { useRef, useState } from "react";
+import { NavBar } from "../components";
+import { JoinMentor } from "../features";
+import { Data } from "../data";
 import { LiaGreaterThanSolid } from "react-icons/lia";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import JoinMentor from "../features/BecomeMentor/JoinMentor";
-import { useRef } from "react";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
+
 const FAQs = ({ Q, children }) => {
   const [open, setOpen] = useState(false);
 
@@ -20,7 +19,7 @@ const FAQs = ({ Q, children }) => {
           onClick={toggle}
         >
           <h1 className="font-semibold md:text-xl ">{Q}</h1>
-          <p>{open ? <ExpandLessIcon /> : <ExpandMoreIcon />}</p>
+          <p>{open ? <ExpandLess /> : <ExpandMore />}</p>
         </div>
         <div
           style={{
@@ -36,7 +35,7 @@ const FAQs = ({ Q, children }) => {
   );
 };
 
-export default function MentorShipPage() {
+const MentorShipPage = () => {
   const formref = useRef(null);
 
   const handlescroll = () => {
@@ -48,14 +47,14 @@ export default function MentorShipPage() {
   const data = [
     {
       Q: "How do I choose the right mentor for me?",
-      Ans: " When choosing a mentor, explore their profiles to find someone who aligns with your goals, values, and experiences. Consider their expertise, background, and areas of specialisation to ensure a good fit for your personal growth journey. ",
+      Ans: "When choosing a mentor, explore their profiles to find someone who aligns with your goals, values, and experiences. Consider their expertise, background, and areas of specialisation to ensure a good fit for your personal growth journey. ",
     },
     {
       Q: "How often should I schedule 1-on-1 video sessions with my mentor?",
       Ans: "The frequency of sessions depends on your needs and preferences. It is common to schedule sessions weekly, biweekly, or monthly. Discuss with your mentor to determine a schedule that works best for both of you. ",
     },
     {
-      Q: " What can I expect during a mentoring session?",
+      Q: "What can I expect during a mentoring session?",
       Ans: "Mentoring sessions provide a safe and supportive space for open conversations. You can discuss your challenges, aspirations, and desired outcomes. Your mentor will actively listen, provide guidance, and share insights to help you on your personal growth journey.",
     },
     {
@@ -163,4 +162,6 @@ export default function MentorShipPage() {
       </div>
     </>
   );
-}
+};
+
+export default MentorShipPage;

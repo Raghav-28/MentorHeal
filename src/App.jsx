@@ -1,19 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import AboutUs from "./components/AboutUs";
-import Mentor from "./components/Mentor";
-import BookForm from "./components/BookForm";
-import How from "./components/How";
-import ReadFull from "./components/ReadFull";
+import {
+  AboutUs,
+  BookForm,
+  Home,
+  How,
+  Mentor,
+  ReadFull,
+  WhatsAppWidget,
+} from "./components";
 import {
   Blog,
   Community,
   ReadFullBlog,
   Mentors,
   MentorShipPage,
-} from "./Pages";
-import { FindMentors, ReadFullQuestion, Signup } from "./features/index";
-import Join from "./Pages/Join";
+} from "./pages";
+import { FindMentors, ReadFullQuestion, Signup } from "./features";
+import Join from "./pages/Join";
 
 const App = () => {
   return (
@@ -35,6 +38,7 @@ const App = () => {
         <Route path="/Mentor-Ship-Page" element={<MentorShipPage />} />
         <Route path="/queries/:postid/" element={<ReadFullQuestion />} />
       </Routes>
+      <WhatsAppWidget />
     </>
   );
 };

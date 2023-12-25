@@ -1,11 +1,5 @@
 import React from "react";
-import lg1 from "../assets/Team/lg1.png";
-import lg2 from "../assets/Team/lg2.png";
-import lg3 from "../assets/Team/lg3.png";
-import lg4 from "../assets/Team/lg4.png";
-import lg5 from "../assets/Team/lg5.png";
-import lg6 from "../assets/Team/lg6.png";
-import lg7 from "../assets/Team/lg7.png";
+import { lg1, lg2, lg3, lg4, lg5, lg6, lg7 } from "../assets";
 
 const CardAbout = () => {
   const data = [
@@ -65,7 +59,7 @@ const CardAbout = () => {
                   <div className="text-xl font-bold md:text-2xl text-[#4a7999]">
                     {member.Name}
                   </div>
-                  <p className="font-Kanit text-[#8ca1b3]">{member.Position}</p>
+                  <p className="font-kanit text-[#8ca1b3]">{member.Position}</p>
                 </div>
               </div>
             </React.Fragment>

@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import dayjs from "dayjs";
 // import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import Carddata from "./Data";
 import { auth, db } from "../config/firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
-import { Footer, Loader, NavBar } from "./";
+import { Carddata, Footer, Loader, NavBar } from "./";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import moment from "moment";
+// import moment from "moment";
 
 const BookForm = () => {
   const [user, loadingAuth, error] = useAuthState(auth);
@@ -60,7 +59,7 @@ const BookForm = () => {
         let templateParams = {
           userName: name,
           userEmail: user?.email,
-          sessionDate: sessionDate,
+          sessionDate: sessionDate.toString(),
         };
         await emailjs
           .send(
@@ -232,7 +231,7 @@ const BookForm = () => {
 
               <div className="flex justify-center">
                 <button
-                  className="px-14 py-2.5 text-sm tracking-wide text-black bg-white rounded-full font-Kanit mt-5"
+                  className="px-14 py-2.5 text-sm tracking-wide text-black bg-white rounded-full font-kanit mt-5"
                   type="submit"
                 >
                   Submit

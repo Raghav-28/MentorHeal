@@ -1,14 +1,14 @@
-import { PostQuestion, Posts } from "../features/index";
+import { PostQuestion, Posts } from "../features";
 import { NavBar } from "../components";
 
-export default function Community() {
+const Community = () => {
   return (
-    <>
-      <main>
-        <NavBar />
-        <PostQuestion />
-        <Posts />
-      </main>
-    </>
+    <main>
+      <NavBar />
+      <PostQuestion />
+      <Posts />
+    </main>
   );
-}
+};
+
+export default Community;

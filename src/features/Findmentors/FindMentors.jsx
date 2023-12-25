@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { HeroSection, Mentors } from "./../index";
+import { useState } from "react";
+import { HeroSection, Mentors } from "./../";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { Loader, NavBar, Footer } from "../../components/index";
+import { Loader, NavBar, Footer } from "../../components";
 
-export default function FindMentors() {
+const FindMentors = () => {
   const [filterCategeory, setfilterCategeory] = useState();
 
   const docref = collection(db, "mentors");
@@ -29,4 +29,6 @@ export default function FindMentors() {
       )}
     </>
   );
-}
+};
+
+export default FindMentors;

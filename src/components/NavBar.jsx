@@ -1,13 +1,10 @@
-import { useState } from "react";
-import Button from "./Button";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Carddata from "./Data";
-import { useEffect } from "react";
-import MainLogo from "../assets/MainLogo.png";
 import { auth, logout } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { ArrowDropDown, Menu } from "@mui/icons-material";
+import { Carddata } from "./";
+import { mainLogo } from "../assets";
 
 const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
   // state handlers
@@ -48,7 +45,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
               {/* <p className="text-2xl text-cyan-400 md:text-3xl ">
                 MentorHeal
               </p> */}
-              <img src={MainLogo} className="w-52" alt="" />
+              <img src={mainLogo} className="w-52" alt="" />
             </Link>
           </div>
           <div className="items-center hidden lg:flex">
@@ -166,7 +163,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
           {/* Mobile navbar ...... */}
           <div className="flex items-center justify-end lg:hidden">
             <button onClick={() => setToggle(!toggle)}>
-              <MenuIcon color="#00b8b3" />
+              <Menu color="#00b8b3" />
             </button>
 
             {/* mobile menu...... */}
@@ -183,7 +180,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   className="transition duration-300 ease-in-out cursor-pointer "
                 >
                   Mentorship
-                  <ArrowDropDownIcon />
+                  <ArrowDropDown />
                 </li>
                 {/* .........options........ */}
                 <div
@@ -234,7 +231,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   className="flex items-center space-x-1 cursor-pointer"
                 >
                   <h1>More</h1>
-                  <ArrowDropDownIcon />
+                  <ArrowDropDown />
                 </li>
 
                 <div

@@ -1,14 +1,13 @@
+import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { FiEdit } from "react-icons/fi";
-import { BsPeople } from "react-icons/bs";
-import { Footer, Loader } from "../../../components";
-import { useState } from "react";
-import ReplyModel from "../ReplyModel";
-import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
+import { Footer, Loader } from "../../../components";
+import { ReplyModel } from "../../";
+import { FiEdit } from "react-icons/fi";
+import { BsPeople } from "react-icons/bs";
 
-export default function ReadFullQuestion() {
+const ReadFullQuestion = () => {
   const data = useLocation();
   // const user = JSON.parse(localStorage.getItem("user"));
   const [Reply, setReply] = useState(false);
@@ -100,4 +99,6 @@ export default function ReadFullQuestion() {
       {Reply ? <ReplyModel setReply={setReply} /> : null}
     </>
   );
-}
+};
+
+export default ReadFullQuestion;

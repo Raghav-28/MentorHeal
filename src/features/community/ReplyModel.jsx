@@ -1,12 +1,11 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import React from "react";
 import { useState, useEffect } from "react";
-import { BsPeople } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import { BsPeople } from "react-icons/bs";
 import { Loader } from "../../components";
 
-export default function ReplyModel({ setReply }) {
+const ReplyModel = ({ setReply }) => {
   const { postid } = useParams();
   const navigate = useNavigate();
   const mentorjwt = localStorage.getItem("mentorjwt");
@@ -120,4 +119,6 @@ export default function ReplyModel({ setReply }) {
       {loading ? <Loader text={"Please wait...."} /> : null}
     </div>
   );
-}
+};
+
+export default ReplyModel;

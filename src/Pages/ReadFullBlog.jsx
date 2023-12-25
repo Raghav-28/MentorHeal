@@ -3,9 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-export default function ReadFullBlog() {
+const ReadFullBlog = () => {
   const data = useLocation();
-
   const { Blogimage, BLogTittle, Sections } = data.state;
 
   return (
@@ -28,7 +27,7 @@ export default function ReadFullBlog() {
           <div className="flex flex-col justify-start gap-8 pb-8 mt-8 ">
             {Sections?.map((item, index) => {
               return (
-                <React.Fragment key={index + 1}>
+                <React.Fragment key={index}>
                   <div className="space-y-2.5 max-w-2xl ">
                     <h1 className="font-semibold leading-7">
                       {item?.SectionTittle}
@@ -53,4 +52,6 @@ export default function ReadFullBlog() {
       <Footer />
     </main>
   );
-}
+};
+
+export default ReadFullBlog;

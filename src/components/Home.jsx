@@ -6,7 +6,6 @@ import {
   Tagline,
   Why,
   Quote,
-  Whatsup,
   LatestBlogs,
   Steps,
   TeamCard,
@@ -16,31 +15,25 @@ import {
   Card,
   FirstCard,
   Events,
-} from "./index";
-import {
-  Authentic,
-  Community,
-  confidential,
-  oneonone,
-  Top,
-} from "../assets/Why";
-import { MGP } from "../Pages/index";
-export default function Home() {
-  // refs
+} from "./";
+import { Authentic, Community, confidential, oneonone, Top } from "../assets";
+// import { MGP } from "../pages";
+
+const Home = () => {
   const formref = useRef();
   const testimonialref = useRef();
 
   const Scrolltoref = () => {
     formref.current.scrollIntoView({
-      behaviour: "smooth ",
-    });
-  };
-  const Scrolltotestimonial = () => {
-    testimonialref.current.scrollIntoView({
-      behaviour: "smooth ",
+      behaviour: "smooth",
     });
   };
 
+  const Scrolltotestimonial = () => {
+    testimonialref.current.scrollIntoView({
+      behaviour: "smooth",
+    });
+  };
 
   const Data = [
     {
@@ -99,7 +92,7 @@ export default function Home() {
   ];
 
   return (
-    <body className="overflow-x-clip">
+    <section className="overflow-x-clip">
       <NavBar
         Scrolltoref={Scrolltoref}
         Scrolltotestimonial={Scrolltotestimonial}
@@ -112,16 +105,17 @@ export default function Home() {
       <Steps />
       <Transformation testimonialref={testimonialref} />
       <TeamCard />
-      {/* <MGP page={"home"}/> */}
-      <Events         Scrolltoref={Scrolltoref}/>
+      {/* <MGP page={"home"} /> */}
+      <Events Scrolltoref={Scrolltoref} />
       <Quote />
-      <Whatsup />
       <LatestBlogs />
       <Appointment />
       <div ref={formref}>
         <Form />
       </div>
       <Footer Scrolltoref={Scrolltoref} />
-    </body>
+    </section>
   );
-}
+};
+
+export default Home;

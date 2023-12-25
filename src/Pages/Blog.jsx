@@ -1,11 +1,12 @@
-import NavBar from "../components/NavBar";
-import Blogs from "../components/Blogs";
+import { Blogs, NavBar } from "../components";
 
-export default function Blog() {
+const Blog = () => {
   return (
     <main>
       <NavBar />
       <Blogs />
     </main>
   );
-}
+};
+
+export default Blog;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Footer, NavBar, Whatsup, Appointment } from "./index";
 import { useLocation, useParams } from "react-router-dom";
+import { Footer, NavBar, Appointment } from "./";
 
-export default function ReadFull() {
+const ReadFull = () => {
   const { id } = useParams();
   const location = useLocation();
   const data = useLocation();
@@ -61,8 +61,9 @@ export default function ReadFull() {
         </div>
       </div>
       <Appointment />
-      <Whatsup />
       <Footer />
     </>
   );
-}
+};
+
+export default ReadFull;

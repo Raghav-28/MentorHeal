@@ -2,7 +2,6 @@ import Appointment from "./Appointment";
 import Footer from "./Footer";
 import HowContent from "./HowContent";
 import NavBar from "./NavBar";
-import Whatsup from "./Whatsup";
 
 const How = () => {
   return (
@@ -10,7 +9,6 @@ const How = () => {
       <NavBar />
       <HowContent />
       <Appointment />
-      <Whatsup/>
       <Footer />
     </div>
   );
