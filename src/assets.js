@@ -67,6 +67,7 @@ import pro6 from "/static/misc/pro6.png";
 import mentor from "/static/misc/mentor.jpg";
 import youth from "/static/misc/youth.jpg";
 import beacon from "/static/misc/beacon.jpg";
+import contactImage from "/static/misc/contact.svg";
 
 export {
   spinner,
@@ -81,4 +82,5 @@ export {
   mentor,
   youth,
   beacon,
+  contactImage,
 };
