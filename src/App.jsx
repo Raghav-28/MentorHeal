@@ -28,8 +28,8 @@ const App = () => {
         <Route path="/join-as-mentor" element={<Mentor />} />
         <Route path="/session" element={<BookForm />} />
         <Route path="/how" element={<How />} />
-        <Route path="/Blog" element={<Blog />} />
-        <Route path="/ReadFull" element={<ReadFullBlog />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<ReadFullBlog />} />
         <Route path="/mentors" element={<FindMentors />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/join" element={<Join />} />

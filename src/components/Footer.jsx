@@ -19,7 +19,6 @@ const Footer = ({ Scrolltoref }) => {
       console.log(error);
     }
   };
-
   return (
     // 007384
     <div className="">

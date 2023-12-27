@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { FavoriteBorderOutlined, FavoriteOutlined } from "@mui/icons-material";
 
 const ReadFullBlog = () => {
   const data = useLocation();
-  const { Blogimage, BLogTittle, Sections } = data.state;
-
+  const { Blogimage, BLogTitle, Sections, Reactions } = data.state;
+  const [react, setReact] = useState(false);
+  const HandleLike = () => {
+    setReact(true);
+  };
   return (
     <main>
       <NavBar />
       <div className="flex justify-between pt-20 overflow-x-clip">
         <section className="px-7 lg:pl-48 lg:ml-20 max-w-5xl bg-white border-[0.5px] border-slate-50">
           <div className="flex justify-start pt-5 ">
-            <h1 className="max-w-2xl text-xl font-bold underline lg:text-2xl ">
-              {BLogTittle}
+            <h1 className="space-y-2.5 max-w-2xl text-xl font-bold lg:text-4xl ">
+              {BLogTitle}
             </h1>
           </div>
           <div className="flex justify-start pt-5 pr-3 md:pr-0">
             <img
               src={Blogimage}
-              className="max-w-xs duration-300 ease-in-out rounded-md cursor-pointer lg:max-w-2xl hover:brightness-90"
+              className="aspect-video max-w-xs duration-300 ease-in-out rounded-md cursor-pointer lg:max-w-2xl hover:brightness-90"
               alt={Blogimage}
             />
+          </div>
+          <br />
+          <div className="text-[#475569]">
+            <button onClick={() => HandleLike()}>
+              {react ? (
+                <FavoriteOutlined className="cursor-pointer" />
+              ) : (
+                <FavoriteBorderOutlined className=" cursor-pointer" />
+              )}
+            </button>
+            &nbsp; {Reactions}
           </div>
           <div className="flex flex-col justify-start gap-8 pb-8 mt-8 ">
             {Sections?.map((item, index) => {
@@ -38,13 +53,24 @@ const ReadFullBlog = () => {
               );
             })}
           </div>
+          <div className="text-[#475569]">
+            <button onClick={() => HandleLike()}>
+              {react ? (
+                <FavoriteOutlined className="cursor-pointer" />
+              ) : (
+                <FavoriteBorderOutlined className=" cursor-pointer" />
+              )}
+            </button>
+            &nbsp; {Reactions}
+          </div>
+          <br />
         </section>
-        <div className="hidden pt-36 md:block">
+        <div className="hidden pt-40 pr-24 md:block">
           <Link to="/session">
             <img
               src="https://d1hny4jmju3rds.cloudfront.net/blogSidebar/talktoexpert.png"
               alt=""
-              className="fixed max-w-xs cursor-pointer right-24"
+              className=" max-w-xs cursor-pointer"
             />
           </Link>
         </div>
