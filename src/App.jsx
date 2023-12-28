@@ -4,8 +4,10 @@ import {
   BookForm,
   Home,
   How,
+  Login,
   Mentor,
   ReadFull,
+  Register,
   WhatsAppWidget,
 } from "./components";
 import {
@@ -15,8 +17,8 @@ import {
   Mentors,
   MentorShipPage,
 } from "./pages";
-import { FindMentors, ReadFullQuestion, Signup } from "./features";
-import Join from "./pages/Join";
+import { FindMentors, ReadFullQuestion } from "./features";
+
 
 const App = () => {
   return (
@@ -28,14 +30,14 @@ const App = () => {
         <Route path="/join-as-mentor" element={<Mentor />} />
         <Route path="/session" element={<BookForm />} />
         <Route path="/how" element={<How />} />
-        <Route path="/Blog" element={<Blog />} />
-        <Route path="/ReadFull" element={<ReadFullBlog />} />
-        <Route path="/mentors" element={<FindMentors />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/join" element={<Join />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/readFull" element={<ReadFullBlog />} />
+        <Route path="/mentors" element={<FindMentors />} />   
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/Mentor-Ship-Page" element={<MentorShipPage />} />
+        <Route path="/mentor-ship-page" element={<MentorShipPage />} />
         <Route path="/queries/:postid/" element={<ReadFullQuestion />} />
       </Routes>
       <WhatsAppWidget />

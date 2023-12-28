@@ -7,7 +7,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../config/firebase";
-
+import NavBar from "./NavBar";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,76 +26,79 @@ const Register = () => {
   }, [user, loading]);
 
   return (
-    <div className="register">
-      <div className="text-center">
-        <h1 className="text-5xl text-[#5D9ABF]">Create new account</h1>
-        <div className="mt-2">
-          Already registered?{" "}
-          <Link to="/">
-            <span className="underline">Login</span>
-          </Link>
+    <>
+      <NavBar />
+      <div className="register">
+        <div className="text-center">
+          <h1 className="text-5xl text-[#5D9ABF]">Create new account</h1>
+          <div className="mt-2">
+            Already registered?{" "}
+            <Link to="/login">
+              <span className="underline">Login</span>
+            </Link>
+          </div>
         </div>
-      </div>
-      <br />
-      <div className="register__container flex flex-col items-center gap-3 ">
-        <div>
-          <div className="tracking-wider">NAME</div>
-          <input
-            type="text"
-            className="register__textBox p-3 rounded-sm w-64 border-solid border border-black"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Full Name"
-          />
-        </div>
+        <br />
+        <div className="register__container flex flex-col items-center gap-3 ">
+          <div>
+            <div className="tracking-wider">NAME</div>
+            <input
+              type="text"
+              className="register__textBox p-3 rounded-sm w-64 border-solid border border-black"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Full Name"
+            />
+          </div>
 
-        <div>
-          <div className="tracking-wider">EMAIL</div>
-          <input
-            type="email"
-            className="register__textBox rounded-sm w-64 p-3 border-solid border border-black"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="E-mail Address"
-          />
-        </div>
+          <div>
+            <div className="tracking-wider">EMAIL</div>
+            <input
+              type="email"
+              className="register__textBox rounded-sm w-64 p-3 border-solid border border-black"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail Address"
+            />
+          </div>
 
-        <div>
-          <div className="tracking-wider">PASSWORD</div>
-          <input
-            type="password"
-            className="register__textBox rounded-sm w-64 p-3 border-solid border border-black"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </div>
+          <div>
+            <div className="tracking-wider">PASSWORD</div>
+            <input
+              type="password"
+              className="register__textBox rounded-sm w-64 p-3 border-solid border border-black"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </div>
 
-        <button
-          className="register__btn font-bold w-1/12 bg-[#44708C] text-white text-lg mt-6 p-3"
-          onClick={handleRegister}
-        >
-          Sign up
-        </button>
+          <button
+            className="register__btn font-bold w-1/12 bg-[#44708C] text-white text-lg mt-6 p-3"
+            onClick={handleRegister}
+          >
+            Sign up
+          </button>
 
-        {/* <div className="flex flex-row">
+          {/* <div className="flex flex-row">
           <div className="text-xs">
             <span>OR</span>
           </div>
         </div> */}
-        <div className="relative flex py-1 items-center bg-white w-1/5">
-          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
-          <span className="flex-shrink mx-2 text-black">OR</span>
-          <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
+          <div className="relative flex py-1 items-center bg-white w-1/5">
+            <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
+            <span className="flex-shrink mx-2 text-black">OR</span>
+            <div className="flex-grow border-t-2 border-[#5D9ABF]"></div>
+          </div>
+          <button
+            className="register__btn register__google bg-[#E7E9EC] w-1/5 rounded-2xl p-4 text-xl text-black border-solid border-2 border-black"
+            onClick={signInWithGoogle}
+          >
+            <GoogleIcon fontSize="large" /> &nbsp; Continue with Google
+          </button>
         </div>
-        <button
-          className="register__btn register__google bg-[#E7E9EC] w-1/5 rounded-2xl p-4 text-xl text-black border-solid border-2 border-black"
-          onClick={signInWithGoogle}
-        >
-          <GoogleIcon fontSize="large" /> &nbsp; Continue with Google
-        </button>
       </div>
-    </div>
+    </>
   );
 };
 

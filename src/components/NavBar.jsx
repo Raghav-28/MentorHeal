@@ -148,7 +148,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 </li>
               ) : (
                 <li className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white">
-                  <Link to="/join"> Login/Signup </Link>
+                  <Link to="/login"> Login </Link>
                 </li>
               )}
               {mentorjwt ? null : (
@@ -250,7 +250,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                     </li>
                   ) : (
                     <li className="cursor-pointer">
-                      <Link to="/join"> Login/Signup </Link>
+                      <Link to="/login"> Login </Link>
                     </li>
                   )}
                   {mentorjwt ? null : (
