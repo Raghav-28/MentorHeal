@@ -117,7 +117,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 >
                   <ul className="grid grid-cols-2 gap-3 p-3 ">
                     <li className="cursor-pointer">
-                      <Link to={"/Blog"}>Blog</Link>
+                      <Link to={"/blog"}>Blog</Link>
                     </li>
                     <li className="cursor-pointer">
                       <Link to="/about"> About us </Link>

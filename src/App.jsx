@@ -31,10 +31,10 @@ const App = () => {
         <Route path="/session" element={<BookForm />} />
         <Route path="/how" element={<How />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/readFull" element={<ReadFullBlog />} />
-        <Route path="/mentors" element={<FindMentors />} />   
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/blog/:id" element={<ReadFullBlog />} />
+        <Route path="/mentors" element={<FindMentors />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/join" element={<Join />} />
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/community" element={<Community />} />
         <Route path="/mentor-ship-page" element={<MentorShipPage />} />

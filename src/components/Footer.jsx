@@ -29,7 +29,6 @@ const Footer = ({ Scrolltoref }) => {
       console.log(error);
     }
   };
-
   return (
     <footer className="relative py-8 text-sm text-center bg-[#4a7999]">
       <div className="container px-4 mx-auto">
