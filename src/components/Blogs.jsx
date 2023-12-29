@@ -1,94 +1,82 @@
-import React, { useEffect } from "react";
-import NavBar from "./NavBar";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import Loader from "./Loader";
+import { Loader } from "./";
 
 const Blogs = () => {
   const navigate = useNavigate();
-  const [AllBlogs, setAllBlogs] = useState(null);
+  const [blogsData, setBlogsData] = useState([{ id: "", data: {} }]);
   const [loading, setloading] = useState(true);
 
+  const fetchData = async () => {
+    try {
+      const collectionRef = collection(db, "BLOGS");
+      const querySnap = await getDocs(collectionRef);
+      const blogsData = [];
+      querySnap.forEach((doc) => {
+        if (doc.exists()) {
+          blogsData.push({ id: doc.id, data: doc.data() });
+        }
+      });
+      setBlogsData(blogsData);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+      navigate("/");
+    }
+    setloading(false);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const collectionRef = collection(db, "BLOGS");
-        const querySnapshot = await getDocs(collectionRef);
-        const blogsData = [];
-        querySnapshot.forEach((doc) => {
-          if (doc.exists()) {
-            blogsData.push(doc.data());
-          }
-        });
-        setAllBlogs(blogsData);
-        setloading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
-    window.scrollTo(0, 0);
   }, []);
+
   return (
     <main>
-      <NavBar />
       <div className="pt-20 text-center">
         <h1 className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text text-6xl md:text-3xl">
           Latest Blogs
         </h1>
       </div>
       <div
-        className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap
-        "
+        className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap"
         // md:grid md:grid-cols-2 lg:grid-cols-3 place-items-center md:px-10 - Isko rem, bc place-items-center causing moving down of item
       >
         {loading ? (
           <Loader />
         ) : (
-          AllBlogs?.map((item, index) => {
+          blogsData?.map((blog) => {
             return (
-              <React.Fragment key={index}>
-                <div
+              <React.Fragment key={blog.id}>
+                <Link
                   className="max-w-sm p-5 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
-                  onClick={() => {
-                    navigate(`/blog/${index}`, {
-                      state: {
-                        Tags: item.Category,
-                        Blogimage: item.image,
-                        BLogTitle: item.title,
-                        Sections: item.BlogSections,
-                        Reactions: item.reactions,
-                      },
-                    });
-                  }}
+                  to={`/blog/${blog.id}`}
                 >
                   <div>
                     <div>
                       <img
-                        src={item.image}
+                        src={blog.data.image}
                         className="rounded-md"
-                        alt={item.title}
+                        alt={blog.data.title}
                       />
                     </div>{" "}
                     <br />
                     <div>
                       <h1 className="font-semibold text-2xl font-kanit">
-                        {item.title}
+                        {blog.data.title}
                       </h1>
                     </div>
                   </div>
                   <div>
                     <p className="text-justify text-gray-700">
-                      {item.BlogSections[0].SectionPara.slice(0, 150)}
+                      {blog.data.BlogSections[0].SectionPara.slice(0, 150)}
                       ...
                     </p>
                   </div>
                   <div className="text-[#475569]">
-                    {item.reactions} people found it useful
+                    {blog.data.reactions} people found it useful
                   </div>
-                </div>
+                </Link>
               </React.Fragment>
             );
           })

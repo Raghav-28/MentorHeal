@@ -22,7 +22,7 @@ import OurStory from "./OurStory";
 import OurMission from "./OurMission";
 import OurVision from "./OurVision";
 import Prophecy from "./Prophecy";
-import AboutUs from "./AboutUs";
+import About from "./About";
 import ReadFull from "./ReadFull";
 import Mentor from "./Mentor";
 import BookForm from "./BookForm";
@@ -58,7 +58,7 @@ export {
   OurMission,
   OurVision,
   Prophecy,
-  AboutUs,
+  About,
   ReadFull,
   Mentor,
   BookForm,

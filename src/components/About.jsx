@@ -12,7 +12,7 @@ import {
   Prophecy,
 } from "./";
 
-const AboutUs = () => {
+const About = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -22,32 +22,18 @@ const AboutUs = () => {
   return (
     <section>
       <NavBar />
-
-      {/* Herosection........ */}
       <HeroAbout />
-
-      {/* <OurStory /> */}
       <OurStory />
-
-      {/* Our mission section..... */}
       <div className="lg:pt-20">
         <OurMission />
       </div>
-
-      {/* Our Vision Section...... */}
       <OurVision />
-
-      {/* MentorHeal Prophecy...... */}
       <Prophecy />
-
-      {/* About the team...... */}
       <CardAbout />
-
       <Appointment />
-
       <Footer />
     </section>
   );
 };
 
-export default AboutUs;
+export default About;

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import {
-  AboutUs,
+  About,
   BookForm,
   Home,
   How,
@@ -10,13 +10,7 @@ import {
   Register,
   WhatsAppWidget,
 } from "./components";
-import {
-  Blog,
-  Community,
-  ReadFullBlog,
-  Mentors,
-  MentorShipPage,
-} from "./pages";
+import { Blog, Community, EachBlog, Mentors, MentorShipPage } from "./pages";
 import { FindMentors, ReadFullQuestion } from "./features";
 
 const App = () => {
@@ -24,13 +18,13 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/about" element={<About />} />
         <Route path="/:id" element={<ReadFull />} />
         <Route path="/join-as-mentor" element={<Mentor />} />
         <Route path="/session" element={<BookForm />} />
         <Route path="/how" element={<How />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<ReadFullBlog />} />
+        <Route path="/blog/:blogid" element={<EachBlog />} />
         <Route path="/mentors" element={<FindMentors />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
