@@ -19,7 +19,6 @@ import {
 } from "./pages";
 import { FindMentors, ReadFullQuestion } from "./features";
 
-
 const App = () => {
   return (
     <>
@@ -33,8 +32,8 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<ReadFullBlog />} />
         <Route path="/mentors" element={<FindMentors />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/join" element={<Join />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/community" element={<Community />} />
         <Route path="/mentor-ship-page" element={<MentorShipPage />} />

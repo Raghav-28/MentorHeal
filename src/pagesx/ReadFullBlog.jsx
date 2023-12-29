@@ -1,20 +1,23 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { NavBar, Footer } from "../components";
 import { FavoriteBorderOutlined, FavoriteOutlined } from "@mui/icons-material";
 
 const ReadFullBlog = () => {
+  const { id } = useParams();
+  console.log(id);
+  
   const data = useLocation();
   const { Blogimage, BLogTitle, Sections, Reactions } = data.state;
   const [react, setReact] = useState(false);
   const HandleLike = () => {
     setReact(true);
   };
+
   return (
-    <main>
+    <React.Fragment>
       <NavBar />
-      <div className="flex justify-between pt-20 overflow-x-clip">
+      <main className="flex justify-between pt-20 overflow-x-clip">
         <section className="px-7 lg:pl-48 lg:ml-20 max-w-5xl bg-white border-[0.5px] border-slate-50">
           <div className="flex justify-start pt-5 ">
             <h1 className="space-y-2.5 max-w-2xl text-xl font-bold lg:text-4xl ">
@@ -43,7 +46,7 @@ const ReadFullBlog = () => {
             {Sections?.map((item, index) => {
               return (
                 <React.Fragment key={index}>
-                  <div className="space-y-2.5 max-w-2xl ">
+                  <div className="space-y-2.5 max-w-2xl">
                     <h1 className="font-semibold leading-7">
                       {item?.SectionTittle}
                     </h1>
@@ -74,9 +77,9 @@ const ReadFullBlog = () => {
             />
           </Link>
         </div>
-      </div>
+      </main>
       <Footer />
-    </main>
+    </React.Fragment>
   );
 };
 
