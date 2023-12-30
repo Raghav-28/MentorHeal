@@ -10,7 +10,7 @@ import {
   Register,
   WhatsAppWidget,
 } from "./components";
-import { Blog, Community, EachBlog, Mentors, MentorShipPage } from "./pages";
+import { Blog, Community, EachBlog, MentorShipPage } from "./pages";
 import { FindMentors, ReadFullQuestion } from "./features";
 
 const App = () => {
@@ -28,7 +28,6 @@ const App = () => {
         <Route path="/mentors" element={<FindMentors />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/mentors" element={<Mentors />} />
         <Route path="/community" element={<Community />} />
         <Route path="/mentor-ship-page" element={<MentorShipPage />} />
         <Route path="/queries/:postid/" element={<ReadFullQuestion />} />

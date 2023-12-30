@@ -22,7 +22,7 @@ const FindMentors = () => {
       ) : (
         <main>
           <NavBar />
-          <HeroSection setfilterCategeory={setfilterCategeory} />
+          <HeroSection mentors={docs} setfilterCategeory={setfilterCategeory} />
           <Mentors filterCategeory={filterCategeory} mentors={docs} />
           <Footer />
         </main>

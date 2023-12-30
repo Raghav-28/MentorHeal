@@ -4,9 +4,9 @@
     url("/static/misc/mgp-banner.png");
 }
 
-::-webkit-scrollbar {
-  @apply hidden;
-}
+/* ::-webkit-scrollbar { */
+  /* @apply hidden; */
+/* } */
 
 .bgclip {
   -webkit-clip-path: polygon(
