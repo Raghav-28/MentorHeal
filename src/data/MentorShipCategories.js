@@ -4,10 +4,10 @@ const Data = [
   "Learning",
   "Skills",
   "Decisions",
-  "Relationships ",
-  "Entrepreneurship ",
-  "Financial Literacy ",
-  "Spirituality ",
+  "Relationships",
+  "Entrepreneurship",
+  "Finance",
+  "Spirituality",
 ];
 
 export default Data;
