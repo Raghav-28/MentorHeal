@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { auth, logout } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { ArrowDropDown, Menu } from "@mui/icons-material";
-import { Carddata } from "./";
+import { Carddata } from "./"; //Circular Import
 import { mainLogo } from "../assets";
 
 const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
@@ -50,6 +50,9 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
           </div>
           <div className="items-center hidden lg:flex">
             <ul className="flex flex-row items-center mr-6 space-x-6 list-none md:text-sm">
+              <li className="cursor-pointer">
+                <Link to="/">Home</Link>
+              </li>
               {/* dropdown web..... */}
               <div className="flex flex-col">
                 <li
@@ -117,7 +120,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 >
                   <ul className="grid grid-cols-2 gap-3 p-3 ">
                     <li className="cursor-pointer">
-                      <Link to={"/blog"}>Blog</Link>
+                      <Link to="/blog">Blog</Link>
                     </li>
                     <li className="cursor-pointer">
                       <Link to="/about"> About us </Link>
@@ -157,7 +160,6 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 </li>
               )}
             </ul>
-            {/* <Button /> */}
           </div>
 
           {/* Mobile navbar ...... */}
@@ -173,6 +175,9 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
               } p-6  bg-white shadow-2xl rounded-xl absolute top-5  items-center justify-center mt-10 `}
             >
               <ul className="flex flex-col gap-4 list-none lg:hidden ">
+                <li className="transition duration-300 ease-in-out cursor-pointer">
+                  <Link to="/">Home</Link>
+                </li>
                 <li
                   onClick={() => {
                     setMore(!more);
@@ -210,7 +215,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                     })}
                   </ul>
                 </div>
-                <li className="transition duration-300 ease-in-out cursor-pointer ">
+                <li className="transition duration-300 ease-in-out cursor-pointerz">
                   <Link to={"/how"}>How it works</Link>
                 </li>
                 {/* {mentorjwt ? (
