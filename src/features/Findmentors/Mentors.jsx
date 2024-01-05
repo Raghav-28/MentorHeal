@@ -65,7 +65,7 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
         </div>
       </div>
       <section
-        className="  grid  grid-cols-1 gap-8 flex-wrap
+        className="shrink-0 grid  grid-cols-1 gap-8 flex-wrap
         sm:grid-cols-1 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2"
       >
         {(sortedMentors ? sortedMentors : mentors)
@@ -83,7 +83,9 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
             }
             const result = item.category.find((val) => {
               const dec = filterParams.find((a) => {
-                console.log(a.category, val.toLowerCase().trim());
+                {
+                  /* console.log(a.category, val.toLowerCase().trim()); */
+                }
                 return a.category === val.toLowerCase().trim();
               });
               {
@@ -91,7 +93,9 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
               }
               return dec;
             });
-            console.log(`🕶️`, result);
+            {
+              /* console.log(``, result); */
+            }
             if (result) {
               return item;
             }

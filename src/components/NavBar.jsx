@@ -29,7 +29,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
   return (
     <>
       <nav
-        className={`fixed w-screen bg-white text-[#8ca1b3] z-50 md:px-8 ${
+        className={`fixed w-screen shadow-sm border bg-white text-[#8ca1b3] z-50 md:px-8 ${
           scroll ? "shadow-md" : "shadow-none"
         }`}
       >

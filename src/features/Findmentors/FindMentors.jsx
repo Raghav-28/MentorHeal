@@ -43,7 +43,7 @@ const Sorting = (state, action) => {
     case "name":
       const mentorName = state;
       const sortedName = mentorName.sort((a, b) => {
-        console.log(`the names ${a.name} ${b.name}`);
+        // console.log(`the names ${a.name} ${b.name}`);
         if (a.name < b.name) {
           return -1;
         }
