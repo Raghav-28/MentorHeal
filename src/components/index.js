@@ -30,6 +30,7 @@ import How from "./How";
 import Home from "./Home";
 import Carddata from "./Data";
 import Blogs from "./Blogs";
+import MentorApplication from "./MentorApplication";
 
 export {
   Appointment,
@@ -65,4 +66,5 @@ export {
   How,
   Home,
   Blogs,
+  MentorApplication,
 };

@@ -9,6 +9,7 @@ import {
   ReadFull,
   Register,
   WhatsAppWidget,
+  MentorApplication,
 } from "./components";
 import { Blog, Community, EachBlog, MentorShipPage } from "./pages";
 import { FindMentors, ReadFullQuestion } from "./features";
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/:id" element={<ReadFull />} />
         <Route path="/join-as-mentor" element={<Mentor />} />
+        <Route path="/join-as-mentor/apply" element={<MentorApplication />} />
         <Route path="/session" element={<BookForm />} />
         <Route path="/how" element={<How />} />
         <Route path="/blog" element={<Blog />} />

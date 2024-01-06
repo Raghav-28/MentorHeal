@@ -1,8 +1,6 @@
 import FindMentors from "./Findmentors/FindMentors";
 import HeroSection from "./Findmentors/HeroSection";
 import Mentors from "./Findmentors/Mentors";
-import JoinMentor from "./BecomeMentor/JoinMentor";
-
 import PostQuestion from "./community/ui/PostQuestion";
 import Posts from "./community/ui/Posts";
 import AskModel from "./community/ui/AskModel";
@@ -21,7 +19,6 @@ export {
   FindMentors,
   HeroSection,
   Mentors,
-  JoinMentor,
   PostQuestion,
   Posts,
   ReplyModel,

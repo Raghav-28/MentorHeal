@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { NavBar } from "../components";
-import { JoinMentor } from "../features";
 import { Data } from "../data";
 import { LiaGreaterThanSolid } from "react-icons/lia";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -157,9 +156,6 @@ const MentorShipPage = () => {
           </div>
         </div>
       </section> */}
-      <div ref={formref}>
-        <JoinMentor />
-      </div>
     </>
   );
 };

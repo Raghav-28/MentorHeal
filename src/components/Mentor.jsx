@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Footer, NavBar, Appointment } from "./";
-import { JoinMentor } from "../features";
 import { pro1, pro2, pro4, pro5, pro6, mentor } from "../assets";
-
+import { Link } from "react-router-dom";
 const data = [
   {
     image: pro1,
@@ -119,8 +118,13 @@ const Mentor = () => {
           })}
         </div>
       </div>
-      <div className="my-14">
-        <JoinMentor />
+      <div className="flex justify-center">
+        <Link
+          to="/join-as-mentor/apply"
+          className="bg-[#4a7999] text-white px-6 py-4 rounded-md mx-auto "
+        >
+          Apply as a Mentor
+        </Link>
       </div>
       <Appointment />
       <Footer />
