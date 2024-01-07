@@ -40,21 +40,21 @@ const Sorting = (state, action) => {
       sortedSession.reverse();
       // console.log(`The sorted sessions`, sortedSession);
       return sortedSession;
-    case "name":
-      const mentorName = state;
-      const sortedName = mentorName.sort((a, b) => {
+    case "exp":
+      const mentorExp = state;
+      const sortedExp = mentorExp.sort((a, b) => {
         // console.log(`the names ${a.name} ${b.name}`);
-        if (a.name < b.name) {
+        if (a.exp < b.exp) {
           return -1;
         }
-        if (a.name > b.name) {
+        if (a.exp > b.exp) {
           return 1;
         }
         return 0;
       });
-      // sortedName.reverse();
+      sortedExp.reverse();
       // console.log(`The sorted names`, sortedName);
-      return sortedName;
+      return sortedExp;
     case "insert":
       // console.log(`executed `, ...action.mentors);
       return action.mentors;

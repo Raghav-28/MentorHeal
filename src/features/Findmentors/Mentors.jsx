@@ -11,14 +11,14 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
   const sortedMentors = mentor;
 
   return (
-    <div className="2xl:mx-40 xl:mx-24 lg:mx-16 md:mx-16 sm:mx-16 my-10 flex flex-row justify-between items-start">
-      <div className=" flex flex-col gap-8">
+    <div className="2xl:mx-40 xl:mx-24 lg:mx-16 md:mx-16 sm:mx-16 mx-4 my-10 flex flex-row flex-wrap lg:justify-between justify-center items-start">
+      <div className=" flex flex-col gap-8 mb-10">
         <h1 className="text-3xl text-gray-700">Filter</h1>
-        <div className="flex flex-col gap-4">
+        <div className="flex lg:flex-col flex-row justify-between flex-wrap gap-4">
           {Data.map((item, i) => {
             const lowercaseItem = item.toLowerCase().trim();
             return (
-              <div key={i} className="flex flex-row">
+              <div key={i} className="flex w-40">
                 <div className="checkbox-wrapper-33">
                   <label className="checkbox">
                     <input
@@ -65,7 +65,7 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
         </div>
       </div>
       <section
-        className="shrink-0 grid  grid-cols-1 gap-8 flex-wrap
+        className="shrink-0 grid  grid-cols-1 gap-8
         sm:grid-cols-1 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2"
       >
         {(sortedMentors ? sortedMentors : mentors)
