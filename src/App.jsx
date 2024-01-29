@@ -11,14 +11,13 @@ import {
   WhatsAppWidget,
   MentorApplication,
 } from "./components";
-import { Blog, Community, EachBlog, MentorShipPage } from "./pages";
+import { Blog, Community, EachBlog, MentorShipPage, ThankYou } from "./pages";
 import { FindMentors, ReadFullQuestion } from "./features";
-import ThankU from "./ThankYou";
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/session/thank-you" element={<ThankU />} />
+        <Route path="/session/thank-you" element={<ThankYou />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/:id" element={<ReadFull />} />
