@@ -78,7 +78,9 @@ const BookForm = () => {
             import.meta.env.VITE_mailServiceID,
             import.meta.env.VITE_mailTemplateID,
             templateParams,
-            import.meta.env.VITE_mailPublicKey
+            {
+              publicKey: import.meta.env.VITE_mailPublicKey,
+            }
           )
           .then(
             function (response) {
