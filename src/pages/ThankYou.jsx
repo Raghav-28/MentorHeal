@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaCircleCheck } from "react-icons/fa6";
 
 const ThankYou = () => {
@@ -14,7 +15,7 @@ const ThankYou = () => {
             color="#4a7999"
           />
         </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold	">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
           {" "}
           Thank you!
         </h1>
@@ -22,9 +23,12 @@ const ThankYou = () => {
           Payment recieved! <br /> Your booking is confirmed! <br /> Our team
           will get in touch with you within 24 hours{" "}
         </div>
-        <button className="max-w-fit mb-0 font-bold sm:text-xl text-base  py-3 bg-[#4a7999] text-white duration-300 ease-in-out rounded-full px-5  border-2">
-          Go home{" "}
-        </button>
+        <Link
+          to="/"
+          className="max-w-fit mb-0 font-bold sm:text-xl text-base py-3 bg-[#4a7999] text-white duration-300 ease-in-out rounded-full px-5 border-2"
+        >
+          Head back to home
+        </Link>
       </div>
     </div>
   );

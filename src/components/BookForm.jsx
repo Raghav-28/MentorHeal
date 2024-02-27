@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { server } from "../api";
 import { auth, db } from "../config/firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { Carddata, Footer, Loader, NavBar } from "./";
 import { useAuthState } from "react-firebase-hooks/auth";
+import useRazorpay from "react-razorpay";
 import emailjs from "@emailjs/browser";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 // import moment from "moment";
@@ -17,6 +19,7 @@ const BookForm = () => {
   const [user, loadingAuth, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [loadingName, setLoadingName] = useState(true);
+  const [paymentCapture, setPaymentCapture] = useState(false);
 
   const [date, setDate] = useState("");
   const [form, setForm] = useState({
@@ -24,6 +27,7 @@ const BookForm = () => {
     phone: "",
     category: "Career",
   });
+  const [Razorpay] = useRazorpay();
 
   const navigate = useNavigate();
   let nDate = new Date();
@@ -49,53 +53,131 @@ const BookForm = () => {
     // console.log(`This is the date selected `, a, a.getTime(), c, c.getTime());
   };
 
+  const handlePaymentAttempts = async ({
+    success,
+    error = {},
+    order_id,
+    payment_id,
+    signature = null,
+  }) => {
+    await addDoc(collection(db, "payment-attempts"), {
+      success,
+      razorpay_order_id: order_id,
+      razorpay_payment_id: payment_id,
+      razorpay_signature: signature,
+      error,
+      userUID: user?.uid,
+      createdAt: new Date(),
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setPaymentCapture(true);
+
+    const sessionFee = 599 * 100;
+
+    let order_id = null;
+
     if (Object.values(form).every((i) => i == "")) {
-      alert("Please Fill the form");
+      alert("Please fill the all the details");
     } else {
-      const sessionDate = new Date(date);
-      // console.log(form);
-      try {
-        await addDoc(collection(db, "sessions"), {
-          sessionDate: sessionDate,
-          bookedOn: new Date(),
-          userData: {
-            name: form.name,
-            email: user?.email,
-            phone: form.phone,
-            category: form.category,
-            uid: user?.uid,
-          },
+      const { data } = await server.post("/api/payment/create-order", {
+        amount: sessionFee,
+      });
+
+      if (!data.success) return alert(data.error);
+      if (data.data.amount !== sessionFee)
+        return alert("Anomaly Detected! Aborting!");
+
+      order_id = data.data.order_id;
+
+      const options = {
+        key: import.meta.env.VITE_RZPAY_KEY_ID,
+        amount: sessionFee,
+        currency: "INR",
+        name: "MentorHeal",
+        order_id: order_id,
+        handler: (res) => {
+          console.log(res);
+          handlePaymentAttempts({
+            success: true,
+            error: {},
+            order_id: res.razorpay_order_id,
+            payment_id: res.razorpay_payment_id,
+            signature: res.razorpay_signature,
+          });
+          sendConfirmation({
+            order_id: res.razorpay_order_id,
+            payment_id: res.razorpay_payment_id,
+            signature: res.razorpay_signature,
+          });
+          navigate("/session/thank-you");
+        },
+        prefill: {
+          name: form.name,
+          email: user?.email,
+          contact: form.phone,
+        },
+        image: "/brand/logo.png",
+        theme: {
+          color: "#4a7999",
+        },
+      };
+      const rzp1 = new Razorpay(options);
+      rzp1.on("payment.failed", async (res) => {
+        console.log(res);
+        await handlePaymentAttempts({
+          success: false,
+          error: res.error,
+          order_id: order_id,
+          payment_id: res.error.metadata.payment_id,
+          signature: null,
         });
-        let templateParams = {
-          userName: name,
-          userEmail: user?.email,
-          sessionDate: sessionDate.toString(),
-        };
-        await emailjs
-          .send(
-            import.meta.env.VITE_mailServiceID,
-            import.meta.env.VITE_mailTemplateID,
-            templateParams,
-            {
-              publicKey: import.meta.env.VITE_mailPublicKey,
-            }
-          )
-          .then(
-            function (response) {
-              // console.log("Mail Sent: ", response.status, response.text);
-            },
-            function (error) {
-              // console.log("Sending Email Failed: ", error);
-            }
-          );
-        alert("Thank you");
-      } catch (error) {
-        alert("Error, Try Again Later!");
-        // console.log(error);
-      }
+        return alert(res.error.description);
+      });
+      rzp1.open();
     }
+
+    setPaymentCapture(false);
+  };
+
+  const sendConfirmation = async ({ order_id, payment_id, signature }) => {
+    const sessionDate = new Date(date);
+    await addDoc(collection(db, "sessions"), {
+      sessionDate: sessionDate,
+      bookedOn: new Date(),
+      userData: {
+        name: form.name,
+        email: user?.email,
+        phone: form.phone,
+        category: form.category,
+        uid: user?.uid,
+      },
+      razorpay_order_id: order_id,
+      razorpay_payment_id: payment_id,
+      razorpay_signature: signature,
+    });
+    let templateParams = {
+      userName: name,
+      userEmail: user?.email,
+      sessionDate: sessionDate.toString(),
+    };
+    await emailjs
+      .send(
+        import.meta.env.VITE_mailServiceID,
+        import.meta.env.VITE_mailTemplateID,
+        templateParams,
+        {
+          publicKey: import.meta.env.VITE_mailPublicKey,
+        }
+      )
+      .then(() => console.log("Confirmation Email sent"))
+      .catch((err) => {
+        console.error(err);
+        alert("Error Sending confirmation email");
+      });
   };
 
   const fetchUserName = async () => {
@@ -182,7 +264,7 @@ const BookForm = () => {
                   </label>
                   <input
                     className="w-full px-4 py-2 text-black border rounded-md outline-none "
-                    type="number"
+                    type="tel"
                     name="phone"
                     value={form.phone}
                     onChange={(e) =>
@@ -256,32 +338,30 @@ const BookForm = () => {
                   />
                 </div>
               </div>
-              <div
-                className="bg-white text-gray-700 shadow-md py-8 mx-4 p-4 flex flex-col flex-wrap gap-4 
-              border border-gray-300 rounded-lg basis-96 lg:mt-36"
-              >
+              <div className="bg-white text-gray-700 shadow-md py-8 mx-4 p-4 flex flex-col flex-wrap gap-4 border border-gray-300 rounded-lg basis-96 lg:mt-36">
                 <h2 className="text-xl font-medium">Session Details</h2>
                 <div className="flex flex-row justify-between">
                   <h1>Session charge</h1>
-                  <h1>Rs 400</h1>
-                </div>{" "}
+                  <h1>INR 599.00</h1>
+                </div>
                 <div className="flex flex-row justify-between">
-                  <h1>Tax (18%)</h1>
-                  <h1>Rs 72</h1>
+                  <h1>Others</h1>
+                  <h1>INR 0.00</h1>
                 </div>
                 <div className="relative flex items-center">
                   <div className="flex-grow border-t border-gray-700"></div>
                 </div>
                 <div className="flex pb-4 flex-row justify-between">
                   <h1>Total</h1>
-                  <h1>Rs 472</h1>
+                  <h1>INR 599.00</h1>
                 </div>
                 <button
                   className="w-full font-semibold text-sm px-2 py-2 bg-[#4a7999] text-white duration-300 ease-in-out rounded-full border-2 flex justify-center gap-1"
                   // "px-14 py-2.5 text-sm tracking-wide text-black bg-white rounded-full font-kanit mt-5 border-[#4a7999] border-4"
                   type="submit"
                 >
-                  Proceed{" "}
+                  {paymentCapture && <Loader />}
+                  Proceed To Pay{" "}
                   <ArrowForwardOutlinedIcon
                     sx={{ paddingTop: "0" }}
                     fontSize="small"
