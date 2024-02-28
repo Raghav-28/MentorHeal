@@ -89,7 +89,7 @@ const Footer = ({ Scrolltoref }) => {
                     <Link to={"/how"}>How it works</Link>
                   </li>
                   <li className="font-kanit">
-                    <Link to={"/join"}>Join as Mentor</Link>
+                    <Link to={"/join-as-mentor"}>Join as Mentor</Link>
                   </li>
                 </ul>
               </div>
@@ -160,14 +160,6 @@ const Footer = ({ Scrolltoref }) => {
             <a href="/">MentorHeal</a>
           </div>
         </div>
-      </div>
-      <hr className="my-6 dark:bg-gray-400 border-0 h-[1.5px]" />
-      <div className="text-[#dde5f1] bg-cyan-700 py-5 px-5 lg:px-20 mx-10 lg:mx-20 rounded-lg font-kanit text-sm lg:leading-10">
-        <p>
-          Disclaimer: We are diligently refining our prototype services, eagerly
-          preparing for the highly anticipated launch announcement. Stay tuned
-          for exciting updates as we shape the future of our industry!
-        </p>
       </div>
     </footer>
   );

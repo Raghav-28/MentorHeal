@@ -121,7 +121,7 @@ const Mentor = () => {
       <div className="flex justify-center">
         <Link
           to="/join-as-mentor/apply"
-          className="bg-[#4a7999] text-white px-6 py-4 rounded-md mx-auto "
+          className="bg-[#4a7999] text-white px-4 py-2 rounded-full mx-auto "
         >
           Apply as a Mentor
         </Link>

@@ -25,11 +25,20 @@ const HeroSection = () => {
                 We are all already abundant. We just need a mentor to help us
                 realise it and discover our purpose.
               </p>
-              <Link to="/how">
-                <button className="py-2 text-sm font-semibold text-white duration-500 ease-in-out rounded-full px-9 bg-[#4a7999]">
-                  Get Started
-                </button>
-              </Link>
+              <div className="space-x-4">
+                <Link
+                  to="/mentors"
+                  className="py-2 text-sm font-semibold text-white duration-500 ease-in-out rounded-full px-8 bg-[#4a7999] border-[#4a7999] border"
+                >
+                  Meet the Amazing Mentors
+                </Link>
+                <Link
+                  to="/how"
+                  className="py-2 text-sm font-semibold bg-white duration-500 ease-in-out rounded-full px-8 text-[#4a7999] border-[#4a7999] border"
+                >
+                  See How
+                </Link>
+              </div>
             </div>
           </div>
         </div>

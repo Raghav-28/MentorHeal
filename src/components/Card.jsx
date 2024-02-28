@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Carddata } from "./";
+import { howMentorshipHelps } from "../assets";
 
 const Card = () => {
   return (
@@ -72,7 +73,7 @@ const FirstCard = () => {
             <img
               className="md:max-w-[20vw] mx-auto rounded-lg"
               alt="hero"
-              src="https://i.ibb.co/ssvmKXG/image-1.png"
+              src={howMentorshipHelps}
             />
           </div>
         </div>

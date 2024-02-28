@@ -14,8 +14,7 @@ import ChevronLeft from "feather-icons-react/build/IconComponents/ChevronLeft";
 import Footer from "./Footer";
 import { Google } from "@mui/icons-material";
 import SvgIcon from "@mui/material/SvgIcon";
-
-
+import { onboardingBg, slider1, slider2, slider3 } from "../assets";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -29,14 +28,7 @@ const Register = () => {
     registerWithEmailAndPassword(name, email, password);
   };
 
-   //my changes
-   const slides = [
-    "https://drive.google.com/uc?id=1a6-Yg-Uk1QmSpvsXkpsbz2DeOjYUxmFp",
-    "https://drive.google.com/uc?id=11wdgB20ACIuy0qS1x5NS32U2xg9TLLJv",
-    "https://drive.google.com/uc?id=1a0wjJ1cUsYGz3qHfm27ooH-11xcRIl29",
-  ];
-  const Bg2 =
-    "https://img.freepik.com/premium-photo/abstract-indigo-background-with-design-space_53876-143838.jpg?w=900";
+  const slides = [slider1, slider2, slider3];
 
   const [curr, setCurr] = useState(0);
 
@@ -45,15 +37,14 @@ const Register = () => {
   const next = () =>
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
-    const autoSlide = true
-    const autoSlideInterval = 3000
+  const autoSlide = true;
+  const autoSlideInterval = 3000;
 
-    useEffect(()=>{
-      if(!autoSlide) return
-      const slideInterval = setInterval(next, autoSlideInterval)
-      return ()=>clearInterval(slideInterval)
-
-    })
+  useEffect(() => {
+    if (!autoSlide) return;
+    const slideInterval = setInterval(next, autoSlideInterval);
+    return () => clearInterval(slideInterval);
+  });
   //my changes end
 
   useEffect(() => {
@@ -64,9 +55,9 @@ const Register = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="flex justify-center items-center bg-blue-100  pt-8 pb-10  ">
-        <div className="flex justify-center mt-20 mb-10   w-full  bg-blue-100">
-          <div className="myform  w-[700px] flex justify-center items-center bg-white">
+      <div className="flex justify-center items-center bg-blue-100 pt-14">
+        <div className="flex flex-col md:flex-row justify-center w-full bg-blue-100">
+          <div className="myform w-full md:w-1/2 flex justify-center items-center bg-white">
             <div className="login p-5 w-[370px]">
               <h1 className="text-4xl  mb-3 font-semibold">Sign Up</h1>
               <p className="mb-10  text-sm font-semibold text-gray-500">
@@ -152,8 +143,8 @@ const Register = () => {
                   type="email"
                   className="login__textBox p-3 rounded-full w-full border-solid border border-gray-200 shadow-md "
                   value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Full Name"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Full Name"
                 />
               </div>
 
@@ -182,9 +173,14 @@ const Register = () => {
 
               <div className="flex items-center justify-between ">
                 <div className="flex">
-                  <input type="checkbox" required className="w-5 h-4 mt-1 mr-1"></input>
+                  <input
+                    type="checkbox"
+                    required
+                    className="w-5 h-4 mt-1 mr-1"
+                  ></input>
                   <div className="text-sm font-bold text-gray-600">
-                    I agree to the <span className="text-[#4a7999]">Terms & Conditions</span>
+                    I agree to the{" "}
+                    <span className="text-[#4a7999]">Terms & Conditions</span>
                   </div>
                 </div>
                 {/* <div>
@@ -214,11 +210,7 @@ const Register = () => {
             {/* login div ends*/}
           </div>
           <div
-            className="photosec  w-[600px] flex justify-center items-center flex-col"
-            style={{
-              backgroundImage: `url(${Bg2})`,
-              backgroundPosition: "center",
-            }}
+            className={`photosec bg-[url(${onboardingBg})] bg-center w-full md:w-1/2 flex justify-center items-center flex-col`}
           >
             <div className="overflow-hidden relative m-10 h-[320px] w-[260px] rounded-lg shadow-lg shadow-gray-700">
               <div
@@ -226,7 +218,11 @@ const Register = () => {
                 style={{ transform: `translateX(-${curr * 100}%)` }}
               >
                 {slides.map((s) => (
-                  <img src={s} className="h-[400px] object-cover"></img>
+                  <img
+                    src={s}
+                    className="h-[400px] object-cover"
+                    loading="lazy"
+                  ></img>
                 ))}
               </div>
               <div className="absolute inset-0 flex items-center justify-between p-4">

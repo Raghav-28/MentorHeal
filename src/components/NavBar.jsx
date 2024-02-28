@@ -42,9 +42,6 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 window.scrollTo(0, 0);
               }}
             >
-              {/* <p className="text-2xl text-cyan-400 md:text-3xl ">
-                MentorHeal
-              </p> */}
               <img src={mainLogo} className="w-52" alt="" />
             </Link>
           </div>
@@ -59,7 +56,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   onMouseEnter={() => setdropdown(!dropdown)}
                   className="cursor-pointer"
                 >
-                  Mentorship-Options
+                  Categories
                 </li>
 
                 {/* options....... */}
@@ -184,7 +181,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   }}
                   className="transition duration-300 ease-in-out cursor-pointer "
                 >
-                  Mentorship
+                  Categories
                   <ArrowDropDown />
                 </li>
                 {/* .........options........ */}

@@ -54,6 +54,21 @@ import Top from "/static/why/top.png";
 
 export { Authentic, Community, oneonone, confidential, Top };
 
+// Quotes
+import jayShetty from "/static/quotes/jay-shetty.png";
+import novakDjokovic from "/static/quotes/novak-djokovic.jpg";
+import robinSharma from "/static/quotes/robin-sharma.jpg";
+
+export { jayShetty, novakDjokovic, robinSharma };
+
+// Onboarding
+import onboardingBg from "/static/onboarding/onboarding-bg.jpg";
+import slider1 from "/static/onboarding/slider1.jpg";
+import slider2 from "/static/onboarding/slider2.jpg";
+import slider3 from "/static/onboarding/slider3.jpg";
+
+export { onboardingBg, slider1, slider2, slider3 };
+
 // MISC
 import spinner from "/static/misc/spinner.gif";
 import heroImage from "/static/misc/hero.jpg";
@@ -67,6 +82,7 @@ import pro6 from "/static/misc/pro6.png";
 import mentor from "/static/misc/mentor.jpg";
 import youth from "/static/misc/youth.jpg";
 import beacon from "/static/misc/beacon.jpg";
+import howMentorshipHelps from "/static/misc/how-mentorship-helps.png";
 import contactImage from "/static/misc/contact.svg";
 
 export {
@@ -82,5 +98,6 @@ export {
   mentor,
   youth,
   beacon,
+  howMentorshipHelps,
   contactImage,
 };

@@ -101,7 +101,7 @@ const HowContent = () => {
           {howItWorks?.map((item, i) => {
             return (
               <div key={i}>
-                <div className="flex flex-col lg:flex-row rounded-lg items-start  mx-auto border-[1px] hover:shadow-md ease-in-out duration-300 cursor-pointer border-slate-300 p-5 space-y-5 lg:space-y-0 lg:space-x-5 ">
+                <div className="flex flex-col lg:flex-row rounded-lg items-start md:h-44  mx-auto border-[1px] hover:shadow-md ease-in-out duration-300 cursor-pointer border-slate-300 p-5 space-y-5 lg:space-y-0 lg:space-x-5 ">
                   <img src={item.image} className="w-16 h-16w-16" alt="" />
                   <div className="space-y-3">
                     <h1 className="text-2xl font-kanit">{item.Tittle}</h1>

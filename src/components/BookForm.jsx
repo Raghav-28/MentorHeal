@@ -199,7 +199,7 @@ const BookForm = () => {
 
   useEffect(() => {
     if (loadingAuth) return;
-    if (!user) navigate("/join");
+    if (!user) navigate("/login");
     fetchUserName();
   }, [user, loadingAuth]);
 

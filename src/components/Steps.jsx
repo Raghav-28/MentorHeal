@@ -34,25 +34,25 @@ const Steps = () => {
           </span>{" "}
           a better you
         </h1>
-        <div className="flex flex-col items-start justify-center gap-5 px-3 mt-16 lg:px-0 md:px-0 lg:gap-0 lg:flex-row">
+        <div className="flex flex-col flex-wrap items-start justify-center gap-4 px-4 mt-16 lg:px-0 md:px-0 lg:gap-4 lg:flex-row">
           {Step.map((item, i) => {
             return (
               <div
                 key={i}
-                className="flex flex-col hover:shadow-md cursor-pointer ease-in-out duration-300 lg:items-start mx-auto space-y-3 lg:max-w-xs border-[1px] rounded-lg border-slate-300 p-3.5 w-[87vw] md:max-w-sm "
+                className="flex flex-col hover:shadow-md ease-in-out duration-300 lg:items-start mx-auto space-y-3 md:w-64 lg:w-72 border-[1px] rounded-lg border-slate-300 p-3.5 w-full"
               >
-                <div>
+                <div className="mx-auto">
                   <img
                     src={item.image}
                     alt={item.image}
-                    className="w-24 lg:w-32"
+                    className="w-24 lg:w-32 aspect-square"
                   />
                 </div>
                 <div className="space-y-2">
                   <p className="text-lg text-[#000000] font-kanit ">
                     {item.Tittle}
                   </p>
-                  <p className="text-sm font-kanit  w-72 text-[#8ca1b3] leading-6">
+                  <p className="text-sm font-kanit text-[#8ca1b3] leading-6">
                     {item.Para}
                   </p>
                 </div>

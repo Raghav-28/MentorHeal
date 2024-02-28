@@ -31,7 +31,7 @@ const Form = () => {
     }
   };
   return (
-    <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto text-gray-900 bg-white mt-14 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32">
+    <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto text-gray-900 mt-14 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32">
       <div className="flex flex-col justify-between">
         <div>
           <h2 className="text-4xl leading-tight text-transparent font-kanit bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text lg:text-5xl">
