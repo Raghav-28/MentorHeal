@@ -4,23 +4,23 @@ const Steps = () => {
   const Step = [
     {
       image: Set,
-      Tittle: "Get Started: Set Up Your Account in just  few clicks",
-      Para: "Unlock the door to your journey with just a few clicks.",
+      title: "Get Started: Set Up Your Account in just  few clicks",
+      para: "Unlock the door to your journey with just a few clicks.",
     },
     {
       image: chose,
-      Tittle: "Explore and Discover: Chose a category",
-      Para: "Dive into a world of possibilities by selecting your area of mentorship.",
+      title: "Explore and Discover: Chose a category",
+      para: "Dive into a world of possibilities by selecting your area of mentorship.",
     },
     {
       image: Find,
-      Tittle: "Meet Your Guide: Find The Right Mentor",
-      Para: "Connect with experienced mentors which you feel right for you.",
+      title: "Meet Your Guide: Find The Right Mentor",
+      para: "Connect with experienced mentors which you feel right for you.",
     },
     {
       image: Schedule,
-      Tittle: "Book Your Path: Schedule A Call and get started",
-      Para: "Take the next step towards success by scheduling your first conversation.",
+      title: "Book Your Path: Schedule A Call and get started",
+      para: "Take the next step towards success by scheduling your first conversation.",
     },
   ];
 
@@ -50,10 +50,10 @@ const Steps = () => {
                 </div>
                 <div className="space-y-2">
                   <p className="text-lg text-[#000000] font-kanit ">
-                    {item.Tittle}
+                    {item.title}
                   </p>
                   <p className="text-sm font-kanit text-[#8ca1b3] leading-6">
-                    {item.Para}
+                    {item.para}
                   </p>
                 </div>
               </div>

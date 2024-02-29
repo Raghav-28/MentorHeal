@@ -6,25 +6,25 @@ import { mentorsContext } from "./context";
 import "./checkbox.css";
 import Rate from "./Rating";
 
-const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
+const Mentors = ({ setfilterCategory, filterCategory = [], mentors }) => {
   const [mentor, setMentors] = useContext(mentorsContext);
   const sortedMentors = mentor;
 
   return (
-    <div className="2xl:mx-40 xl:mx-24 lg:mx-16 md:mx-16 sm:mx-16 mx-4 my-10 flex flex-row flex-wrap lg:justify-between justify-center items-start">
-      <div className=" flex flex-col gap-8 mb-10">
+    <div className="2xl:mx-36 xl:mx-24 lg:mx-16 md:mx-14 sm:mx-10 mx-4 my-10 flex flex-col lg:flex-row lg:justify-between justify-center items-start gap-4">
+      <div className="flex flex-col gap-8 mb-10">
         <h1 className="text-3xl text-gray-700">Filter</h1>
-        <div className="flex lg:flex-col flex-row justify-between flex-wrap gap-4">
+        <div className="flex lg:flex-col flex-row flex-wrap gap-4">
           {Data.map((item, i) => {
             const lowercaseItem = item.toLowerCase().trim();
             return (
-              <div key={i} className="flex w-40">
+              <div key={i} className="flex w-44">
                 <div className="checkbox-wrapper-33">
                   <label className="checkbox">
                     <input
                       onClick={() => {
                         // console.log(filterCategory);
-                        const modified = filterCategory.map((val) => {
+                        const modified = filterCategory?.map((val) => {
                           // console.log(item, val.category, !val.filter);
                           return val.category === lowercaseItem
                             ? { ...val, filter: !val.filter }
@@ -52,22 +52,12 @@ const Mentors = ({ setfilterCategory, filterCategory, mentors }) => {
                     <p className="checkbox__textwrapper">{item}</p>
                   </label>
                 </div>
-                {/* <button
-                  className=" px-5 py-2 text-black duration-300 ease-in-out border-[#4a7999] border-2 rounded-lg md:px-7 lg:px-7 lg:text-sm hover:bg-[#4a7999] hover:text-white"
-                  key={i}
-                  onClick={() => {
-                    setfilterCategory(item);
-                  }}
-                ></button> */}
               </div>
             );
           })}
         </div>
       </div>
-      <section
-        className="shrink-0 grid  grid-cols-1 gap-8
-        sm:grid-cols-1 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2"
-      >
+      <section className="shrink-0 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 mx-auto">
         {(sortedMentors ? sortedMentors : mentors)
           ?.filter((item) => {
             const skip = filterCategory.find((val) => val.filter);

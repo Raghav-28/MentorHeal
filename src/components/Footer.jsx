@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Carddata } from "./";
 import { FaXTwitter } from "react-icons/fa6";
 import { Instagram, LinkedIn, YouTube } from "@mui/icons-material";
-// import { mainLogo } from "../assets";
 
 const Footer = ({ Scrolltoref }) => {
   const [loading, setLoading] = useState(false);
@@ -57,7 +56,6 @@ const Footer = ({ Scrolltoref }) => {
                 <p className="mx-auto mb-5 text-3xl text-transparent bg-gradient-to-r from-white via-[#b2d6ee] to-white bg-clip-text md:text-4xl">
                   MentorHeal
                 </p>
-                {/* <img src={mainLogo} alt="" /> */}
               </Link>
             </div>
             <div className="text-xs text-center text-white lg:text-sm">
@@ -147,7 +145,6 @@ const Footer = ({ Scrolltoref }) => {
           </div>
         </div>
 
-        {/* social icons .... */}
         <div className="flex items-center justify-center space-x-6 cursor-pointer [&>a]:p-1 [&>a]:bg-white [&>a]:rounded-full">
           <a href="https://www.linkedin.com/company/mentorheal/">
             <LinkedIn style={{ color: "#1DA1F2" }} fontSize="large" />
@@ -156,7 +153,7 @@ const Footer = ({ Scrolltoref }) => {
             <Instagram style={{ color: "#C13584" }} fontSize="large" />
           </a>
           <a href="https://x.com/MentorHeal">
-            <FaXTwitter color="" size={28} />
+            <FaXTwitter size={35} />
           </a>
           <a href="https://youtube.com/@MentorHealOfficial">
             <YouTube style={{ color: "#CD201F" }} fontSize="large" />
@@ -169,7 +166,7 @@ const Footer = ({ Scrolltoref }) => {
       <div className="flex flex-wrap items-center justify-center md:justify-between">
         <div className="w-full px-4 mx-auto text-center md:w-4/12">
           <div className="py-1 text-sm text-white font-kanit">
-            Copyright © <span id="get-current-year">{year}</span>
+            Copyright ©<span className="mx-1">{year}</span>
             <a href="/">MentorHeal</a>
           </div>
         </div>

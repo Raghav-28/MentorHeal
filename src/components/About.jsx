@@ -24,9 +24,7 @@ const About = () => {
       <NavBar />
       <HeroAbout />
       <OurStory />
-      <div className="lg:pt-20">
-        <OurMission />
-      </div>
+      <OurMission />
       <OurVision />
       <Prophecy />
       <CardAbout />

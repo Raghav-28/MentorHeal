@@ -1,16 +1,13 @@
-import Appointment from "./Appointment";
-import Footer from "./Footer";
-import HowContent from "./HowContent";
-import NavBar from "./NavBar";
+import { Appointment, Footer, HowContent, NavBar } from "./";
 
 const How = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <HowContent />
       <Appointment />
       <Footer />
-    </div>
+    </>
   );
 };
 

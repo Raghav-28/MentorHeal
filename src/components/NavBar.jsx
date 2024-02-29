@@ -79,7 +79,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                             key={index}
                             to={`/${item.Title}`}
                             state={{
-                              Tittle: item.Title,
+                              title: item.Title,
                               Background: item.Background,
                               Blog: item.Blog,
                             }}
@@ -120,25 +120,14 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                       <Link to="/blog">Blog</Link>
                     </li>
                     <li className="cursor-pointer">
-                      <Link to="/about"> About us </Link>
+                      <Link to="/about">About us</Link>
                     </li>
                     <li className="cursor-pointer">
-                      <Link to="/mentors"> Mentors </Link>
+                      <Link to="/mentors">Mentors</Link>
                     </li>
-                    {/* <li onClick={Scrolltoref} className="cursor-pointer">
-                      Contact us
-                    </li> */}
-
-                    {/* <li
-                      className="cursor-pointer"
-                      onClick={Scrolltotestimonial}
-                    >
-                      Testimonials
-                    </li> */}
                   </ul>
                 </div>
               </div>
-              {/* className="px-5  text-white cursor-pointer bg-gradient-to-l from-cyan-400 via-cyan-400 to-cyan-300 py-1.5 rounded-full" */}
               {user ? (
                 <li
                   className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white"
@@ -169,9 +158,9 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
             <div
               className={`${
                 !toggle ? "hidden" : "flex"
-              } p-6  bg-white shadow-2xl rounded-xl absolute top-5  items-center justify-center mt-10 `}
+              } p-6 bg-white shadow-2xl rounded-xl absolute top-5 items-center justify-center mt-10`}
             >
-              <ul className="flex flex-col gap-4 list-none lg:hidden ">
+              <ul className="flex flex-col gap-4 list-none lg:hidden">
                 <li className="transition duration-300 ease-in-out cursor-pointer">
                   <Link to="/">Home</Link>
                 </li>
@@ -179,14 +168,13 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   onClick={() => {
                     setMore(!more);
                   }}
-                  className="transition duration-300 ease-in-out cursor-pointer "
+                  className="transition duration-300 ease-in-out cursor-pointer"
                 >
                   Categories
                   <ArrowDropDown />
                 </li>
-                {/* .........options........ */}
                 <div
-                  className={` space-y-4 text-sm ${more ? "block" : "hidden"}`}
+                  className={`space-y-4 text-sm ${more ? "block" : "hidden"}`}
                 >
                   <ul className="grid gap-3 font-normal ">
                     {Carddata.map((item, index) => {
@@ -200,7 +188,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                             key={index}
                             to={`/${item.Title}`}
                             state={{
-                              Tittle: item.Title,
+                              title: item.Title,
                               Background: item.Background,
                               Blog: item.Blog,
                             }}
@@ -215,13 +203,6 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 <li className="transition duration-300 ease-in-out cursor-pointerz">
                   <Link to={"/how"}>How it works</Link>
                 </li>
-                {/* {mentorjwt ? (
-                  ""
-                ) : (
-                  <li className="cursor-pointer">
-                    <Link to="/signup"> Signup </Link>
-                  </li>
-                )} */}
                 <li className="cursor-pointer">
                   <Link to="/mentors"> Mentors </Link>
                 </li>

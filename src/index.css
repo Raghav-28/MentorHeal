@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Cardo&family=Inter:wght@700&family=Kanit&family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1,
-p,
-span,
-li {
+body {
   @apply font-kanit;
 }

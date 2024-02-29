@@ -1,13 +1,8 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../config/firebase";
 import { collection, getDocs, limit, orderBy } from "firebase/firestore";
-import { useEffect } from "react";
-
 const LatestBlogs = () => {
-  const navigate = useNavigate();
-
   const [AllBlogs, setAllBlogs] = useState([]);
 
   useEffect(() => {
@@ -49,42 +44,41 @@ const LatestBlogs = () => {
       <section className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap">
         {AllBlogs?.slice(0, 2)?.map((blog, index) => {
           return (
-            <React.Fragment key={index}>
-              <Link
-                className="max-w-sm p-2 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
-                to={`/blog/${blog.id}`}
-              >
+            <Link
+              key={index}
+              className="max-w-sm p-2 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
+              to={`/blog/${blog.id}`}
+            >
+              <div>
                 <div>
-                  <div>
-                    <img
-                      src={blog.data.image}
-                      className="rounded-md aspect-video h-64 mx-auto object-cover object-center"
-                      alt={blog.data.title}
-                    />
-                  </div>
-                  <br />
-                  <div>
-                    <h1 className="font-semibold text-xl font-kanit">
-                      {blog.data.title}
-                    </h1>
-                  </div>
+                  <img
+                    src={blog.data.image}
+                    className="rounded-md aspect-video h-64 mx-auto object-cover object-center"
+                    alt={blog.data.title}
+                  />
                 </div>
+                <br />
                 <div>
-                  <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
-                    {blog.data.BlogSections[0].SectionPara}
-                  </p>
+                  <h1 className="font-semibold text-xl font-kanit">
+                    {blog.data.title}
+                  </h1>
                 </div>
-                <div className="text-[#475569]">
-                  {blog.data.reactions} people found it useful
-                </div>
-              </Link>
-            </React.Fragment>
+              </div>
+              <div>
+                <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
+                  {blog.data.BlogSections[0].SectionPara}
+                </p>
+              </div>
+              <div className="text-[#475569]">
+                {blog.data.reactions} people found it useful
+              </div>
+            </Link>
           );
         })}
       </section>
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <Link to="/blog">
-          <button className="py-3  text-white px-9 bg-[#4a7999] rounded-3xl font-kanit">
+          <button className="py-3 text-white px-9 bg-[#4a7999] rounded-3xl font-kanit">
             Read More Articles
           </button>
         </Link>

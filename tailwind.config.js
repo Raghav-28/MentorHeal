@@ -5,8 +5,6 @@ export default {
   theme: {
     fontFamily: {
       poppins: ["Poppins"],
-      inter: ["Inter"],
-      cardo: ["Cardo"],
       kanit: ["Kanit"],
     },
   },

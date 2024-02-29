@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -9,27 +9,26 @@ const Blogs = () => {
   const [blogsData, setBlogsData] = useState([{ id: "", data: {} }]);
   const [loading, setloading] = useState(true);
 
-  const fetchData = async () => {
-    try {
-      const collectionRef = collection(db, "BLOGS");
-      const querySnap = await getDocs(collectionRef);
-      const blogsData = [];
-      querySnap.forEach((doc) => {
-        if (doc.exists()) {
-          blogsData.push({ id: doc.id, data: doc.data() });
-        }
-      });
-      setBlogsData(blogsData);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-      navigate("/");
-    }
-    setloading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const collectionRef = collection(db, "BLOGS");
+        const querySnap = await getDocs(collectionRef);
+        const blogsData = [];
+        querySnap.forEach((doc) => {
+          if (doc.exists()) {
+            blogsData.push({ id: doc.id, data: doc.data() });
+          }
+        });
+        setBlogsData(blogsData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        navigate("/");
+      }
+      setloading(false);
+    };
     fetchData();
-  }, []);
+  }, [navigate]);
 
   return (
     <main>
@@ -38,45 +37,41 @@ const Blogs = () => {
           Latest Blogs
         </h1>
       </div>
-      <div
-        className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap"
-        // md:grid md:grid-cols-2 lg:grid-cols-3 place-items-center md:px-10 - Isko rem, bc place-items-center causing moving down of item
-      >
+      <div className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap">
         {loading ? (
           <Loader />
         ) : (
           blogsData?.map((blog) => {
             return (
-              <React.Fragment key={blog.id}>
-                <Link
-                  className="max-w-sm p-5 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
-                  to={`/blog/${blog.id}`}
-                >
+              <Link
+                key={blog.id}
+                className="max-w-sm p-5 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
+                to={`/blog/${blog.id}`}
+              >
+                <div>
                   <div>
-                    <div>
-                      <img
-                        src={blog.data.image}
-                        className="rounded-md"
-                        alt={blog.data.title}
-                      />
-                    </div>{" "}
-                    <br />
-                    <div>
-                      <h1 className="font-semibold text-2xl font-kanit">
-                        {blog.data.title}
-                      </h1>
-                    </div>
-                  </div>
+                    <img
+                      src={blog.data.image}
+                      className="rounded-md"
+                      alt={blog.data.title}
+                    />
+                  </div>{" "}
+                  <br />
                   <div>
-                    <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
-                      {blog.data.BlogSections[0].SectionPara}
-                    </p>
+                    <h1 className="font-semibold text-2xl font-kanit">
+                      {blog.data.title}
+                    </h1>
                   </div>
-                  <div className="text-[#475569]">
-                    {blog.data.reactions} people found it useful
-                  </div>
-                </Link>
-              </React.Fragment>
+                </div>
+                <div>
+                  <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
+                    {blog.data.BlogSections[0].SectionPara}
+                  </p>
+                </div>
+                <div className="text-[#475569]">
+                  {blog.data.reactions} people found it useful
+                </div>
+              </Link>
             );
           })
         )}

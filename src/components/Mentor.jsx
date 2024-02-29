@@ -62,7 +62,7 @@ const Mentor = () => {
               <span className=" text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
                 community
               </span>{" "}
-              of world-class mentors
+              of world-className mentors
             </h1>
             <p className="text-[#8ca1b3]">
               As a MentorHeal mentor, you'll get to provide mentorship to

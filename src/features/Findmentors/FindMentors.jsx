@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer } from "react";
 import { HeroSection, Mentors } from "./../";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "firebase/firestore";

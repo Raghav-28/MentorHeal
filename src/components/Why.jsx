@@ -11,23 +11,23 @@ const Why = () => {
   const Data = [
     {
       image: Authentic,
-      Tittle: "Authentic Guidance",
+      title: "Authentic Guidance",
     },
     {
       image: oneonone,
-      Tittle: "One on One Mentorship",
+      title: "One on One Mentorship",
     },
     {
       image: Top,
-      Tittle: "Experienced Mentors",
+      title: "Experienced Mentors",
     },
     {
       image: Community,
-      Tittle: "Community Support",
+      title: "Community Support",
     },
     {
       image: confidential,
-      Tittle: "Confidential Conversation",
+      title: "Confidential Conversation",
     },
   ];
 
@@ -54,7 +54,7 @@ const Why = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="font-kanit">{_.Tittle}</h1>
+                  <h1 className="font-kanit">{_.title}</h1>
                 </div>
               </div>
             </React.Fragment>

@@ -113,8 +113,8 @@ const MentorShipPage = () => {
                   <h1 className="flex items-center mt-5 space-x-2 lg:text-xl">
                     <span className="font-bold text-slate-800">{i + 1}.</span>
                   </h1>
-                  <h1 className="text-xl font-bold lg:text-3xl">{_.Tittle}</h1>
-                  <p className=" text-[#6d6667] ">{_.Para}</p>
+                  <h1 className="text-xl font-bold lg:text-3xl">{_.title}</h1>
+                  <p className=" text-[#6d6667] ">{_.para}</p>
                 </div>
               </div>
             </React.Fragment>

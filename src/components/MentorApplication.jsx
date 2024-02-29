@@ -1,18 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import { Footer, NavBar } from "./";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 const MentorApplication = () => {
-  // const [formStep, setformStep] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [form, setForm] = useState({
     email: "",
@@ -49,72 +45,6 @@ const MentorApplication = () => {
       availability: [],
     });
   };
-
-  // const renderButton = () => {
-  //   if (formStep > 4) {
-  //     return undefined;
-  //   } else if (formStep === 4) {
-  //     return (
-  //       <button
-  //         onClick={completeFormStep}
-  //         type="submit"
-  //         className="text-white bg-[#4a7999] hover:bg-[#3c6e8f]  font-medium text-sm px-5 py-2.5 me-2   w-1/2 rounded-full mt-5 mb-5 shadow-md shadow-gray-400"
-  //       >
-  //         Submit
-  //       </button>
-  //     );
-  //   } else {
-  //     return (
-  //       <button
-  //         onClick={completeFormStep}
-  //         type="button"
-  //         className="text-white bg-[#4a7999] hover:bg-[#3c6e8f]  font-medium text-sm px-5 py-2.5 me-2   w-1/2 rounded-full mt-5 mb-5 shadow-md shadow-gray-400"
-  //       >
-  //         Next Step
-  //       </button>
-  //     );
-  //   }
-  // };
-  // const completeFormStep = () => {
-  //   setformStep((curr) => curr + 1);
-  // };
-
-  // const backFormStep = () => {
-  //   setformStep((curr) => curr - 1);
-  // };
-
-  // const backButton = () => {
-  //   if (formStep < 1) {
-  //     return (
-  //       <div className=" mt-4 mr-5">
-  //         <button
-  //           type="button"
-  //           disabled
-  //           onClick={backFormStep}
-  //           className="bg-gray-400 text-white rounded-full py-3 hover:bg-gray-700 hover:text-white px-3 ml-2 "
-  //         >
-  //           <div className="flex flex-row ">
-  //             <IoMdArrowRoundBack />
-  //           </div>
-  //         </button>
-  //       </div>
-  //     );
-  //   } else {
-  //     return (
-  //       <div className=" mt-4 mr-5">
-  //         <button
-  //           type="button"
-  //           onClick={backFormStep}
-  //           className="bg-gray-400 text-white rounded-full py-3 hover:bg-gray-700 hover:text-white px-3 ml-2 "
-  //         >
-  //           <div className="flex flex-row ">
-  //             <IoMdArrowRoundBack />
-  //           </div>
-  //         </button>
-  //       </div>
-  //     );
-  //   }
-  // };
 
   const handleCheckboxChange = (label) => {
     const index = selectedOptions.indexOf(label);
@@ -172,7 +102,6 @@ const MentorApplication = () => {
           </div>
           <div className="rightone border-0  lg:border-l-2 bg-white   flex  flex-col sm:w-[500px] ">
             <div className="flex justify-start ml-6">
-              {/* {backButton()} */}
               <div className="font-bold text-2xl mt-5">Mentor Details</div>
             </div>
             <div className="rightChild  flex flex-col justify-center  m-10 ">
@@ -180,10 +109,8 @@ const MentorApplication = () => {
                 onSubmit={handleMentorApplicationSubmission}
                 className="h-full lg:h-[100dvh] overflow-auto"
               >
-                {/* {formStep === 0 && ( */}
                 <section className="">
                   <div className="emailone w-full mb-8">
-                    {/* <div className="m-5"> */}
                     <div className="font-bold text-gray-600  m-2 ">Email</div>
                     <input
                       type="email"
@@ -195,7 +122,6 @@ const MentorApplication = () => {
                       }
                       required
                     />
-                    {/* </div> */}
                   </div>
 
                   <div className="nameone w-full mb-8">
@@ -259,8 +185,7 @@ const MentorApplication = () => {
                     />
                   </div>
                 </section>
-                {/* )} */}
-                {/* {formStep === 1 && ( */}
+
                 <section>
                   <div className="city w-full mb-8">
                     <div className="font-bold text-gray-600  m-2 ">City</div>
@@ -307,9 +232,7 @@ const MentorApplication = () => {
                     ></textarea>
                   </div>
                 </section>
-                {/* )} */}
 
-                {/* {formStep === 2 && ( */}
                 <section>
                   <div className="mr-10 mb-8">
                     <div className="font-bold text-gray-600">
@@ -407,9 +330,7 @@ const MentorApplication = () => {
                     />
                   </div>
                 </section>
-                {/* )} */}
 
-                {/* {formStep === 3 && ( */}
                 <section>
                   <div className="state w-full mb-8">
                     <div className="font-bold text-gray-600 mb-1">
@@ -449,8 +370,7 @@ const MentorApplication = () => {
                     ></textarea>
                   </div>
                 </section>
-                {/* )} */}
-                {/* {formStep === 4 && ( */}
+
                 <section>
                   <div className="mr-10 mb-4 ">
                     <div className="font-bold text-gray-600 ">
@@ -522,13 +442,6 @@ const MentorApplication = () => {
                     </FormGroup>
                   </div>
                 </section>
-                {/* )} */}
-                {/* {formStep === 5 && ( */}
-                {/* <section>
-                  <div>Your Form is submitted</div>
-                </section> */}
-                {/* )} */}
-                {/* {renderButton()} */}
                 <button
                   type="submit"
                   className="text-white bg-[#4a7999] hover:bg-[#3c6e8f]  font-medium text-sm px-5 py-2.5 me-2   w-1/2 rounded-full mt-5 mb-5 shadow-md shadow-gray-400"
@@ -537,7 +450,6 @@ const MentorApplication = () => {
                 </button>
               </form>
             </div>
-            {/* rightChild ends */}
           </div>
         </div>
       </div>

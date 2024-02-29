@@ -27,6 +27,7 @@ import ReadFull from "./ReadFull";
 import Mentor from "./Mentor";
 import BookForm from "./BookForm";
 import How from "./How";
+import HowContent from "./HowContent";
 import Home from "./Home";
 import Carddata from "./Data";
 import Blogs from "./Blogs";
@@ -64,6 +65,7 @@ export {
   Mentor,
   BookForm,
   How,
+  HowContent,
   Home,
   Blogs,
   MentorApplication,

@@ -3,10 +3,10 @@ import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const Appointment = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
-    <div className="mt-28 shadow-md w-[100vw] mx-auto bg-[#4a7999] p-8 border-b-2 border-white">
+    <div className="mt-28 shadow-md w-full mx-auto bg-[#4a7999] p-8 border-b-2 border-white">
       <section className="flex flex-col text-center text-white lg:flex-row md:items-center md:justify-around space-y-7 lg:space-y-0">
         <div className="md:max-w-[40vw] md:text-left md:text-3xl space-y-4 lg:space-y-6">
           <h1 className="text-xl text-white font-kanit lg:text-3xl">

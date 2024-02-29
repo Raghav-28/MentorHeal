@@ -11,7 +11,7 @@ const Card = () => {
             key={index}
             to={`/${item.Title}`}
             state={{
-              Tittle: item.Title,
+              title: item.Title,
               Background: item.Background,
               Blog: item.Blog,
             }}
@@ -20,18 +20,17 @@ const Card = () => {
               <div className="shadow-sm border-[0.3px] border-gray-200 rounded-lg flex flex-col items-center space-y-5 p-4">
                 <img
                   src={item.image}
-                  className=" mt-4 bg-[#d1cfcf] rounded-full w-28 h-28"
+                  className="mt-4 bg-[#d1cfcf] rounded-full w-28 h-28"
                 />
                 <h1 className="text-3xl text-center font-kanit">
                   {item.Title}
                 </h1>
-                <p className="text-center lg:h-20 text-[#8ca1b3] font-kanit  leading-6">
-                  {item.Para}
+                <p className="text-center lg:h-20 text-[#8ca1b3] font-kanit leading-6">
+                  {item.para}
                 </p>
-                <p className="cursor-pointer  text-[#00b8d3] font-kanit border-cyan-500">
+                <p className="cursor-pointer text-[#00b8d3] font-kanit border-cyan-500">
                   Read More
                 </p>
-                {/* </div> */}
               </div>
             </div>
           </Link>
@@ -43,15 +42,12 @@ const Card = () => {
 
 const FirstCard = () => {
   return (
-    <div className="px-4 bg-[#4a7999] w-[100vw]  mx-auto ">
-      <section className=" my-28">
+    <div className="px-4 bg-[#4a7999] w-[100vw] mx-auto">
+      <section className="my-28">
         <div className="items-center px-3 py-5 md:flex md:flex-row-reverse md:justify-around md:space-x-5 md:px-5">
           <div className="flex flex-col order-2 py-5 space-y-8 md:text-left">
-            <h1 className="text-2xl  text-white md:text-4xl md:max-w-[50vw] leading-8 font-kanit ">
-              How will{" "}
-              {/* <span className="font-bold text-transparent bg-gradient-to-l from-cyan-500 via-cyan-300 to-cyan-500 bg-clip-text"> */}
-              {/* </span>{" "} */}
-              Mentorship help you?
+            <h1 className="text-2xl text-white md:text-4xl md:max-w-[50vw] leading-8 font-kanit ">
+              How will Mentorship help you?
             </h1>
             <p className="text-sm text-white md:max-w-[50vw] md:text-lg leading-6 md:leading-7 font-kanit">
               Through the guidance and support of a mentor, individuals can gain
@@ -63,7 +59,7 @@ const FirstCard = () => {
               life skills. The mentor-mentee relationship fosters personal and
               professional growth, nurturing not just skills but character.
               Through shared experiences, a mentor instills resilience,
-              strategic thinking, and a profound understanding of one's
+              strategic thinking, and a profound understanding of one{`'`}s
               strengths. This dynamic connection bridges the gap between theory
               and application, accelerating the journey toward success by
               offering a roadmap enriched with lessons learned firsthand.

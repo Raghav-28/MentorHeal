@@ -15,11 +15,11 @@ const WhatsAppWidget = () => {
         <WhatsApp
           fontSize="large"
           onClick={sendMessage}
-          className="w-12 h-12 cursor-pointer bg-white text-[#25d366] rounded-t-full rounded-br-full"
+          className="w-14 h-13 cursor-pointer bg-white text-[#25d366] rounded-full p-1"
           alt=""
         />
       </div>
-    </div> 
+    </div>
   );
 };
 

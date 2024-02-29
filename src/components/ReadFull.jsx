@@ -35,7 +35,7 @@ const ReadFull = () => {
                   }}
                 >
                   <h1 className="text-lg text-gray-400">
-                    {item.Tittle.toUpperCase()}
+                    {item.title.toUpperCase()}
                   </h1>
                 </button>
               </div>
@@ -44,9 +44,9 @@ const ReadFull = () => {
         </div>
         <div className="max-w-2xl space-y-3">
           <h1 className="py-4 text-xl font-bold text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8]  bg-clip-text md:text-2xl lg:text-3xl">
-            {data.state.Blog[point].Tittle}
+            {data.state.Blog[point].title}
           </h1>
-          {data.state.Blog[point].Points.map((item, index) => {
+          {data.state.Blog[point].points.map((item, index) => {
             return (
               <React.Fragment key={index}>
                 <div className="flex gap-2">

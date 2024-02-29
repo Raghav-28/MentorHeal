@@ -39,27 +39,27 @@ const Home = () => {
     {
       image: oneonone,
 
-      Tittle: "One on One Mentorship",
+      title: "One on One Mentorship",
     },
     {
       image: Top,
-      Tittle: "Top Mentors",
+      title: "Top Mentors",
     },
     // {
     //   image: "",
-    //   Tittle: "Experienced On-Site Mentors",
+    //   title: "Experienced On-Site Mentors",
     // },
     {
       image: confidential,
-      Tittle: "Confidential Conversations",
+      title: "Confidential Conversations",
     },
     {
       image: Community,
-      Tittle: "Commutiy Support",
+      title: "Commutiy Support",
     },
     {
       image: Authentic,
-      Tittle: "Authentic Guidance",
+      title: "Authentic Guidance",
     },
   ];
 
@@ -67,27 +67,27 @@ const Home = () => {
     {
       image: oneonone,
 
-      Tittle: "Safe Environment",
+      title: "Safe Environment",
     },
     {
       image: Top,
-      Tittle: "Supportive Community",
+      title: "Supportive Community",
     },
     // {
     //   image: "",
-    //   Tittle: "Experienced On-Site Mentors",
+    //   title: "Experienced On-Site Mentors",
     // },
     {
       image: confidential,
-      Tittle: "Monetise Expertise",
+      title: "Monetise Expertise",
     },
     {
       image: Community,
-      Tittle: "Exposure and Recognition",
+      title: "Exposure and Recognition",
     },
     {
       image: Authentic,
-      Tittle: "Fulfillment and Satisfaction",
+      title: "Fulfillment and Satisfaction",
     },
   ];
 

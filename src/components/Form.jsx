@@ -48,13 +48,13 @@ const Form = () => {
           <h2 className="text-4xl leading-tight text-transparent font-kanit bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text lg:text-5xl">
             Reach out to Us!
           </h2>
-          <div className="space-y-4 my-8 text-[#8ca1b3] ">
-            <p className=" font-kanit">
+          <div className="space-y-4 my-8 text-[#8ca1b3]">
+            <p className="font-kanit">
               If you have any concern please feel free to contact us by filling
               up the form.
             </p>
-            <a href="mailto:contact@mentorheal.com" className="font-kanit">
-              contact@mentorheal.com
+            <a href="mailto:team@mentorheal.com" className="font-kanit">
+              team@mentorheal.com
             </a>
           </div>
         </div>
@@ -124,9 +124,9 @@ const Form = () => {
         <div className="mt-8">
           <button
             type="submit"
-            className="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase rounded-lg bg-[#4a7999] "
+            className="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase rounded-lg bg-[#4a7999]"
           >
-            Send Message
+            {loading ? "Send Message" : "Sending Message"}
           </button>
           <ToastContainer />
         </div>

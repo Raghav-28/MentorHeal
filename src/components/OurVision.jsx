@@ -2,15 +2,15 @@ import { ourVisionImage } from "../assets";
 
 const OurVision = () => {
   return (
-    <div className="grid grid-cols-1 m-8 md:grid-cols-2 place-items-center md:gap-4 ">
+    <div className="grid grid-cols-1 m-8 md:grid-cols-2 place-items-center md:gap-4">
       <div>
         <img className="w-[390px]" src={ourVisionImage} />
       </div>
-      <div className="mt-10  lg:w-[40vw] text-[#7C7C7C]  ">
+      <div className="mt-10  lg:w-[40vw] text-[#7C7C7C]">
         <h1 className="text-[#4a7999] font-kanit text-2xl lg:text-5xl">
           OUR VISION
         </h1>
-        <p className="text-[#7C7C7C] font-kanit leading-5 text-sm md:text-[16.5px]  md:leading-7 lg:leading-9 w-80 lg:w-[40vw] mt-5">
+        <p className="text-[#7C7C7C] font-kanit leading-5 text-sm md:text-[16.5px] md:leading-7 lg:leading-9 w-80 lg:w-[40vw] mt-5">
           Our vision is to create a world where individuals can attain complete
           well-being in all these dimensions, enabling them to unlock their
           highest potential and live a life that resonates with their innermost

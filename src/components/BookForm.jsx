@@ -1,25 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import dayjs from "dayjs";
-// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { server } from "../api";
 import { auth, db } from "../config/firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { Carddata, Footer, Loader, NavBar } from "./";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useRazorpay from "react-razorpay";
-// import emailjs from "@emailjs/browser";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import moment from "moment";
 
 const BookForm = () => {
-  const [user, loadingAuth, error] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const [user, loadingAuth] = useAuthState(auth);
   const [loadingName, setLoadingName] = useState(true);
   const [paymentCapture, setPaymentCapture] = useState(false);
 
@@ -36,23 +28,11 @@ const BookForm = () => {
 
   nDate.setDate(nDate.getDate(nDate) + 2);
 
-  // console.log(`one day plus ${nDate}`);
-
   const Dateindex = nDate.toISOString().length - 8;
   let today = nDate.toISOString().slice(0, Dateindex);
-  // new Date().toISOString().split("T")[0];
-  // today = today.substring(0, today.length - 8);
-  // console.log(`todays date`, today, typeof today);
-  // console.log("mom", moment().format());
 
   const handleDateChange = (e) => {
-    // console.log(e.target.value, typeof e.target.value);
-    // let intDate = new Date(e.target.value).toISOString().toString();
-    // let newDate = intDate.substring(0, intDate.length - 1);
     setDate(e.target.value);
-    var c = new Date();
-    const a = new Date(e.target.value);
-    // console.log(`This is the date selected `, a, a.getTime(), c, c.getTime());
   };
 
   const handlePaymentAttempts = async ({
@@ -161,11 +141,6 @@ const BookForm = () => {
       razorpay_payment_id: payment_id,
       razorpay_signature: signature,
     });
-    // let templateParams = {
-    //   userName: name,
-    //   userEmail: user?.email,
-    //   sessionDate: sessionDate.toString(),
-    // };
     await server
       .post("/api/mail/send-session-confirmation", {
         name: form.name,
@@ -182,28 +157,27 @@ const BookForm = () => {
       });
   };
 
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.name);
-      setForm({
-        ...form,
-        name: data.name,
-      });
-    } catch (err) {
-      console.error(err);
-      toast.error("An error occured while fetching user data");
-    }
-    setLoadingName(false);
-  };
-
   useEffect(() => {
     if (loadingAuth) return;
     if (!user) navigate("/login");
+
+    const fetchUserName = async () => {
+      try {
+        const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+        const doc = await getDocs(q);
+        const data = doc.docs[0].data();
+        setForm({
+          ...form,
+          name: data.name,
+        });
+      } catch (err) {
+        console.error(err);
+        toast.error("An error occured while fetching user data");
+      }
+      setLoadingName(false);
+    };
     fetchUserName();
-  }, [user, loadingAuth]);
+  }, [user, loadingAuth, form, navigate]);
 
   return (
     <>
@@ -216,10 +190,10 @@ const BookForm = () => {
           </div>
           <div className="">
             <form
-              className="flex justify-center  gap-2 flex-wrap items-start"
+              className="flex justify-center gap-2 flex-wrap items-start"
               onSubmit={handleSubmit}
             >
-              <div className="2xl:basis-4/12 basis-96 sm:basis-7/12 md:basis-9/12 lg:basis-5/12 py-8 p-4 text-black ">
+              <div className="2xl:basis-4/12 basis-96 sm:basis-7/12 md:basis-9/12 lg:basis-5/12 py-8 p-4 text-black">
                 <h1 className="text-3xl font-bold">Confirm booking</h1>
                 <h2 className="text-xl font-medium mb-4 mt-8">
                   Contact Information
@@ -251,7 +225,7 @@ const BookForm = () => {
                   </label>
                   <input
                     disabled
-                    className="w-full px-4 py-2 text-black border rounded-md outline-none "
+                    className="w-full px-4 py-2 text-black border rounded-md outline-none"
                     type="email"
                     name="email"
                     value={user?.email}
@@ -265,7 +239,7 @@ const BookForm = () => {
                     Phone Number
                   </label>
                   <input
-                    className="w-full px-4 py-2 text-black border rounded-md outline-none "
+                    className="w-full px-4 py-2 text-black border rounded-md outline-none"
                     type="tel"
                     name="phone"
                     value={form.phone}
@@ -286,7 +260,7 @@ const BookForm = () => {
                     Choose Category
                   </label>
                   <select
-                    className="w-full px-4 py-2 text-black border rounded-md outline-none "
+                    className="w-full px-4 py-2 text-black border rounded-md outline-none"
                     name="category"
                     value={form.category}
                     onChange={(e) =>
@@ -308,20 +282,6 @@ const BookForm = () => {
                 </div>
 
                 <div className="mb-4">
-                  {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DateTimePicker"]}>
-                    <DemoItem label="Select date & time">
-                      <DateTimePicker
-                        disablePast={true}
-                        name="date"
-                        value={date}
-                        onChange={handleDateChange}
-                        defaultValue={dayjs(new Date())}
-                        className="text-white border-white"
-                      />
-                    </DemoItem>
-                  </DemoContainer>
-                </LocalizationProvider> */}
                   <label className="block mb-2" htmlFor="datetime">
                     Select date and time
                   </label>
@@ -330,11 +290,8 @@ const BookForm = () => {
                     name="date"
                     id="datetime"
                     value={date}
-                    step="600"
                     onChange={handleDateChange}
                     min={today}
-                    // format="hh:mm"
-                    // max={maxDate}
                     className="w-full px-4 py-2 text-black border rounded-md outline-none border-[#e5e7eb]"
                     required
                   />
@@ -359,7 +316,6 @@ const BookForm = () => {
                 </div>
                 <button
                   className="w-full font-semibold text-sm px-2 py-2 bg-[#4a7999] text-white duration-300 ease-in-out rounded-full border-2 flex justify-center gap-1"
-                  // "px-14 py-2.5 text-sm tracking-wide text-black bg-white rounded-full font-kanit mt-5 border-[#4a7999] border-4"
                   type="submit"
                 >
                   {paymentCapture && <Loader />}
