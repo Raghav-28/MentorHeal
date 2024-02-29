@@ -2,13 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../config/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { server } from "../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Carddata } from "./";
 import { FaXTwitter } from "react-icons/fa6";
 import { Instagram, LinkedIn, YouTube } from "@mui/icons-material";
 // import { mainLogo } from "../assets";
 
 const Footer = ({ Scrolltoref }) => {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
+  const year = new Date().getFullYear();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,6 +21,7 @@ const Footer = ({ Scrolltoref }) => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await addDoc(collection(db, "newsletter"), {
         email: email.toLowerCase(),
@@ -23,11 +29,16 @@ const Footer = ({ Scrolltoref }) => {
         date: new Date(),
         source: window.location.href,
       });
-      alert("success");
+      server.post("/api/mail/send-newsletter-confirmation", {
+        name: "Mentorheal Subscriber",
+        email: email.toLowerCase(),
+      });
+      toast.success("Subscribed successfully! 🎉");
       setEmail("");
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   return (
@@ -43,14 +54,14 @@ const Footer = ({ Scrolltoref }) => {
                   window.scrollTo(0, 0);
                 }}
               >
-                <p className="mx-auto mb-5 text-3xl font-kanit text-transparent bg-gradient-to-l from-[#77b3db] via-[#65a6d1] to-[#5ba4d4] bg-clip-text md:text-4xl">
+                <p className="mx-auto mb-5 text-3xl text-transparent bg-gradient-to-r from-white via-[#b2d6ee] to-white bg-clip-text md:text-4xl">
                   MentorHeal
                 </p>
                 {/* <img src={mainLogo} alt="" /> */}
               </Link>
             </div>
             <div className="text-xs text-center text-white lg:text-sm">
-              <p className="leading-5 font-kanit">
+              <p className="leading-5 font-kanit md:mx-4">
                 MentorHeal is the holistic wellness mentorship platform where we
                 connect the mentees with experienced, qualified and certified
                 mentors across the country.
@@ -70,8 +81,9 @@ const Footer = ({ Scrolltoref }) => {
                   className="px-6 py-3 leading-tight text-gray-700 border shadow appearance-none rounded-3xl w-54 md:w-64 focus:outline-none focus:shadow-outline"
                 />
                 <button className="px-6 py-3 bg-[#5789aa] text-white border-white border-2 font-kanit rounded-full">
-                  Subscribe Now!
+                  {!loading ? "Subscribe Now!" : "Subscribing..."}
                 </button>
+                <ToastContainer />
               </form>
             </div>
           </div>
@@ -79,16 +91,16 @@ const Footer = ({ Scrolltoref }) => {
             <div className="flex flex-wrap mb-6 items-top">
               <div className="w-full px-4 ml-auto lg:w-4/12">
                 <span className="block mb-2 text-sm text-white uppercase font-kanit">
-                  More
+                  Mentorheal
                 </span>
                 <ul className="text-[#dde5f1] list-unstyled space-y-4 my-6 cursor-pointer ">
-                  <li className="font-kanit">
+                  <li>
                     <Link to={"/about"}>About Us</Link>
                   </li>
-                  <li className="font-kanit">
+                  <li>
                     <Link to={"/how"}>How it works</Link>
                   </li>
-                  <li className="font-kanit">
+                  <li>
                     <Link to={"/join-as-mentor"}>Join as Mentor</Link>
                   </li>
                 </ul>
@@ -137,7 +149,7 @@ const Footer = ({ Scrolltoref }) => {
 
         {/* social icons .... */}
         <div className="flex items-center justify-center space-x-6 cursor-pointer [&>a]:p-1 [&>a]:bg-white [&>a]:rounded-full">
-          <a href="https://www.linkedin.com/company/mentoheal/">
+          <a href="https://www.linkedin.com/company/mentorheal/">
             <LinkedIn style={{ color: "#1DA1F2" }} fontSize="large" />
           </a>
           <a href="https://instagram.com/mentorheal_forlife">
@@ -152,11 +164,12 @@ const Footer = ({ Scrolltoref }) => {
         </div>
       </div>
 
-      <hr className="my-6 dark:bg-gray-400 border-0 h-[1.5px]" />
+      <hr className="my-6 bg-white border-0 h-[1.5px]" />
+
       <div className="flex flex-wrap items-center justify-center md:justify-between">
         <div className="w-full px-4 mx-auto text-center md:w-4/12">
           <div className="py-1 text-sm text-white font-kanit">
-            Copyright © <span id="get-current-year">2023</span>
+            Copyright © <span id="get-current-year">{year}</span>
             <a href="/">MentorHeal</a>
           </div>
         </div>

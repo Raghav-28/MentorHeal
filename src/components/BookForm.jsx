@@ -11,8 +11,10 @@ import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { Carddata, Footer, Loader, NavBar } from "./";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useRazorpay from "react-razorpay";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import moment from "moment";
 
 const BookForm = () => {
@@ -81,15 +83,15 @@ const BookForm = () => {
     let order_id = null;
 
     if (Object.values(form).every((i) => i == "")) {
-      alert("Please fill the all the details");
+      toast.error("Please fill the all the details");
     } else {
       const { data } = await server.post("/api/payment/create-order", {
         amount: sessionFee,
       });
 
-      if (!data.success) return alert(data.error);
+      if (!data.success) return toast.error(data.error);
       if (data.data.amount !== sessionFee)
-        return alert("Anomaly Detected! Aborting!");
+        return toast.error("Anomaly Detected! Aborting!");
 
       order_id = data.data.order_id;
 
@@ -135,7 +137,7 @@ const BookForm = () => {
           payment_id: res.error.metadata.payment_id,
           signature: null,
         });
-        return alert(res.error.description);
+        return toast.error(res.error.description);
       });
       rzp1.open();
     }
@@ -159,24 +161,24 @@ const BookForm = () => {
       razorpay_payment_id: payment_id,
       razorpay_signature: signature,
     });
-    let templateParams = {
-      userName: name,
-      userEmail: user?.email,
-      sessionDate: sessionDate.toString(),
-    };
-    await emailjs
-      .send(
-        import.meta.env.VITE_mailServiceID,
-        import.meta.env.VITE_mailTemplateID,
-        templateParams,
-        {
-          publicKey: import.meta.env.VITE_mailPublicKey,
-        }
-      )
-      .then(() => console.log("Confirmation Email sent"))
+    // let templateParams = {
+    //   userName: name,
+    //   userEmail: user?.email,
+    //   sessionDate: sessionDate.toString(),
+    // };
+    await server
+      .post("/api/mail/send-session-confirmation", {
+        name: form.name,
+        email: user?.email,
+        bookedFor: sessionDate.toString(),
+      })
+      .then((res) => {
+        if (res.data.success) toast.success("Confirmation email sent! 🚀");
+        else toast.error("Couldn't send confirmation email");
+      })
       .catch((err) => {
         console.error(err);
-        alert("Error Sending confirmation email");
+        toast.error("Couldn't send confirmation email");
       });
   };
 
@@ -192,7 +194,7 @@ const BookForm = () => {
       });
     } catch (err) {
       console.error(err);
-      alert("An error occured while fetching user data");
+      toast.error("An error occured while fetching user data");
     }
     setLoadingName(false);
   };
@@ -367,6 +369,7 @@ const BookForm = () => {
                     fontSize="small"
                   />
                 </button>
+                <ToastContainer />
                 <div className="text-center font-thin text-gray-600 text-sm">
                   <h1>P.S.: This will be a 30 minutes session</h1>
                 </div>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { server } from "../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { contactImage } from "../assets";
 
 const Form = () => {
@@ -9,9 +12,11 @@ const Form = () => {
     email: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const submitUser = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (user.name && user.email && user.message != "") {
       try {
         await addDoc(collection(db, "queries"), {
@@ -22,14 +27,20 @@ const Form = () => {
           source: window.location.href,
         });
         setUser({ name: "", email: "", message: "" });
-        alert("success");
+        server.post("/api/mail/send-message-confirmation", {
+          name: user.name,
+          email: user.email,
+        });
+        toast.success("Message sent successfully! 🎉");
       } catch (error) {
         console.log(error);
       }
     } else {
-      alert("Fill the data");
+      toast.error("Please fill all the details!");
     }
+    setLoading(false);
   };
+
   return (
     <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto text-gray-900 mt-14 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32">
       <div className="flex flex-col justify-between">
@@ -117,6 +128,7 @@ const Form = () => {
           >
             Send Message
           </button>
+          <ToastContainer />
         </div>
       </form>
     </div>

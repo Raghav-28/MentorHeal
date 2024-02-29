@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const LatestBlogs = () => {
   const navigate = useNavigate();
 
-  const [AllBlogs, setAllBlogs] = useState(null);
+  const [AllBlogs, setAllBlogs] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +47,7 @@ const LatestBlogs = () => {
         </h1>
       </div>
       <section className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap">
-        {AllBlogs?.map((blog, index) => {
+        {AllBlogs?.slice(0, 2)?.map((blog, index) => {
           return (
             <React.Fragment key={index}>
               <Link
