@@ -97,6 +97,10 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 <Link to={"/how"}> How it works </Link>
               </li>
 
+              <li className="cursor-pointer">
+                <Link to="/mentors">Mentors</Link>
+              </li>
+
               {/* More...... */}
               <div>
                 <li
@@ -122,9 +126,6 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                     <li className="cursor-pointer">
                       <Link to="/about">About us</Link>
                     </li>
-                    <li className="cursor-pointer">
-                      <Link to="/mentors">Mentors</Link>
-                    </li>
                   </ul>
                 </div>
               </div>
@@ -136,12 +137,12 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   Logout
                 </li>
               ) : (
-                <li className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white">
+                <li className="cursor-pointer bg-[#4a7999] opacity-95 hover:opacity-100 px-6 py-2 rounded-full text-white">
                   <Link to="/login"> Login </Link>
                 </li>
               )}
               {mentorjwt ? null : (
-                <li className="cursor-pointer bg-[#4a7999] px-6 py-2 rounded-full text-white">
+                <li className="cursor-pointer bg-[#4a7999] opacity-95 hover:opacity-100 px-6 py-2 rounded-full text-white">
                   <Link to="/join-as-mentor">Join as Mentor</Link>
                 </li>
               )}

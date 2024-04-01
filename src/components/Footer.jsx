@@ -105,7 +105,7 @@ const Footer = ({ Scrolltoref }) => {
               </div>
               <div className="w-full px-4 ml-auto lg:w-4/12">
                 <span className="block mb-2 text-sm text-white uppercase font-kanit">
-                  Mentorship Options
+                  Categories
                 </span>
                 <ul className="text-[#dde5f1] list-unstyled space-y-3 my-6 cursor-pointer">
                   {Carddata.map((item, index) => {
