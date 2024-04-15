@@ -18,7 +18,8 @@ const Register = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
   };
@@ -126,7 +127,7 @@ const Register = () => {
               <div className="relative flex py-1 items-center bg-white mt-5">
                 <div className="flex-grow border-t-2 border-gray-300"></div>
                 <span className="flex-shrink mx-2 text-gray-500 text-sm font-semibold">
-                  or sign in with email
+                  or Sign in with email
                 </span>
                 <div className="flex-grow border-t-2 border-gray-300"></div>
               </div>
@@ -191,9 +192,9 @@ const Register = () => {
               </div>
               <div className="text-sm">
                 Already have an Account?
-                <span className="font-bold text-[#4a7999] text-sm mx-1">
-                  <Link to="/login">Login</Link>
-                </span>
+                <Link to="/login" className="font-bold text-[#4a7999] ml-1">
+                  Login
+                </Link>
               </div>
             </form>
           </div>

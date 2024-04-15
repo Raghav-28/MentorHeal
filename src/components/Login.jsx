@@ -126,7 +126,7 @@ function Login() {
               <div className="relative flex py-1 items-center bg-white mt-5">
                 <div className="flex-grow border-t-2 border-gray-300"></div>
                 <span className="flex-shrink mx-2 text-gray-500 text-sm font-semibold">
-                  or sign in with email
+                  or Sign in with email
                 </span>
                 <div className="flex-grow border-t-2 border-gray-300"></div>
               </div>
@@ -164,9 +164,9 @@ function Login() {
               </div>
               <div className="text-sm">
                 Not registered yet?
-                <span className="font-bold text-[#4a7999]">
-                  <Link to="/register">Create an account</Link>
-                </span>
+                <Link to="/register" className="font-bold text-[#4a7999] ml-1">
+                  Create an account
+                </Link>
               </div>
             </form>
           </div>
