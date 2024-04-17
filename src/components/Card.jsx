@@ -16,19 +16,19 @@ const Card = () => {
               Blog: item.Blog,
             }}
           >
-            <div className="flex justify-center max-w-lg duration-300 ease-in-out rounded-lg cursor-pointer hover:shadow-md shadow-slate-50">
-              <div className="shadow-sm border-[0.3px] border-gray-200 rounded-lg flex flex-col items-center space-y-5 p-4">
+            <div className="flex justify-center max-w-lg  ease-in-out rounded-lg cursor-pointer hover:shadow-md shadow-slate-50 scroll-smooth transition-transform duration-300 transform hover:scale-105">
+              <div className=" border-[0.3px] border-gray-200 rounded-lg flex flex-col items-center space-y-5 p-4 bg-cyan-500 hover:bg-cyan-700 shadow-lg hover:shadow-xl shadow-cyan-500 hover:shadow-cyan-700">
                 <img
                   src={item.image}
-                  className="mt-4 bg-[#d1cfcf] rounded-full w-28 h-28"
+                  className="mt-4 bg-[#4a7999] rounded-full  w-36 h-36 border-4 border-black dark:border-white"
                 />
-                <h1 className="text-3xl text-center font-kanit">
+                <h1 className="text-4xl text-center font-kanit  ">
                   {item.Title}
                 </h1>
-                <p className="text-center lg:h-20 text-[#8ca1b3] font-kanit leading-6">
+                <p className="text-left lg:h-20 text-black font-kanit leading-6">
                   {item.para}
                 </p>
-                <p className="cursor-pointer text-[#00b8d3] font-kanit border-cyan-500">
+                <p className="cursor-pointer text-xl text-white  font-kanit border-cyan-500 hover:bg-black hover:text-white rounded-sm">
                   Read More
                 </p>
               </div>
@@ -42,32 +42,34 @@ const Card = () => {
 
 const FirstCard = () => {
   return (
-    <div className="px-4 bg-[#4a7999] w-[100vw] mx-auto">
+    <div className="px-4 bg-[#4c8db8] w-[100vw] mx-auto">
       <section className="my-28">
         <div className="items-center px-3 py-5 md:flex md:flex-row-reverse md:justify-around md:space-x-5 md:px-5">
           <div className="flex flex-col order-2 py-5 space-y-8 md:text-left">
-            <h1 className="text-2xl text-white md:text-4xl md:max-w-[50vw] leading-8 font-kanit ">
+            <h1 className="text-2xl text-black md:text-4xl md:max-w-[50vw] leading-8  font-bold ">
               How will Mentorship help you?
             </h1>
-            <p className="text-sm text-white md:max-w-[50vw] md:text-lg leading-6 md:leading-7 font-kanit">
-              Through the guidance and support of a mentor, individuals can gain
-              valuable insights, develop new skills, and overcome obstacles that
-              they may have otherwise struggled with on their own. Whether in
-              business, personal life, or any other aspect of life.A mentor
-              serves as a compass, providing insights born from experience,
-              steering individuals through challenges, and imparting crucial
-              life skills. The mentor-mentee relationship fosters personal and
-              professional growth, nurturing not just skills but character.
-              Through shared experiences, a mentor instills resilience,
-              strategic thinking, and a profound understanding of one{`'`}s
-              strengths. This dynamic connection bridges the gap between theory
-              and application, accelerating the journey toward success by
-              offering a roadmap enriched with lessons learned firsthand.
-            </p>
+            <div className="text-sm text-white md:max-w-[70vw] md:text-lg leading-6 md:leading-7 font-kanit">
+              <h5 className = "text-black text-x3 underline font-bold "> 1. Guidance :</h5> 
+              <p className = "text-base">Mentors offer personalized advice and direction
+              tailored to the mentee's needs and goals.</p>
+              <h5  className = "text-black text-x3 underline font-bold ">2. Skill Development :</h5> 
+              <p>Mentors provide opportunities for
+              mentees to develop new skills and refine existing ones through
+              practical experience and feedback.</p>
+              <h5  className = "text-black text-x3 underline font-bold ">3. Overcoming Obstacles :</h5> 
+              <p>Mentors help mentees navigate
+              challenges by sharing their own experiences and strategies for
+              overcoming similar obstacles.</p>
+              <h5  className = "text-black text-x3 underline font-bold ">4. Personal Growth :</h5> 
+              <p>Mentorship fosters not only professional
+              development but also personal growth by nurturing qualities like
+              resilience, adaptability, and self-awareness.</p>
+            </div>
           </div>
           <div className="my-5 md:my-0">
             <img
-              className="md:max-w-[20vw] mx-auto rounded-lg"
+              className="md:max-w-[40vw] mx-auto rounded-lg"
               alt="hero"
               src={howMentorshipHelps}
             />
