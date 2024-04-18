@@ -27,7 +27,7 @@ const Steps = () => {
   return (
     <section className="mt-20">
       <div className="px-5 md:px-0">
-        <h1 className="text-3xl text-center md:text-4xl font-kanit">
+        <h1 className="text-4xl text-center md:text-4xl font-kanit">
           Four Steps to{" "}
           <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
             unleash
@@ -39,9 +39,9 @@ const Steps = () => {
             return (
               <div
                 key={i}
-                className="flex flex-col hover:shadow-md ease-in-out duration-300 lg:items-start mx-auto space-y-3 md:w-64 lg:w-72 border-[1px] rounded-lg border-slate-300 p-3.5 w-full"
+                className="flex flex-col hover:shadow-md ease-in-out duration-300 lg:items-start mx-auto space-y-3 md:w-64 lg:w-72 border-[1px] rounded-lg border-slate-300 p-3.5 w-full  bg-cyan-500 hover:bg-cyan-600 hover:scale-105"
               >
-                <div className="mx-auto">
+                <div className="mx-auto ">
                   <img
                     src={item.image}
                     alt={item.image}
@@ -49,10 +49,10 @@ const Steps = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-lg text-[#000000] font-kanit ">
+                  <p className="text-lg text-[#000000] font-kanit font-semibold">
                     {item.title}
                   </p>
-                  <p className="text-sm font-kanit text-[#8ca1b3] leading-6">
+                  <p className="text-sm font-kanit text-[white] leading-6">
                     {item.para}
                   </p>
                 </div>
