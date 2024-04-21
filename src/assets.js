@@ -101,3 +101,13 @@ export {
   howMentorshipHelps,
   contactImage,
 };
+// PERSON
+import person1 from "/static/person/person1.jpg";
+import person2 from "/static/person/person2.jpg";
+import person3 from "/static/person/person3.jpeg";
+
+export{
+  person1,
+  person2,
+  person3,
+};
