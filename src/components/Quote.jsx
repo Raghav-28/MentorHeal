@@ -60,7 +60,7 @@ const Quote = () => {
               <div className="flex flex-col items-center justify-center gap-5 lg:flex-row">
                 <img
                   src={item.img}
-                  className="max-w-xs aspect-video object-cover object-center rounded-lg md:max-w-sm grayscale mx-2"
+                  className="max-w-xs aspect-video object-cover object-center rounded-lg md:max-w-sm  mx-2"
                   alt={item.name}
                   loading="lazy"
                 />

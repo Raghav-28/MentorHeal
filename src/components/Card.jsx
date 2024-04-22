@@ -52,9 +52,9 @@ const FirstCard = () => {
   return (
     <div className="px-4 bg-[#4c8db8] w-[100vw] mx-auto">
       <section className="my-28 animate-slidein700">
-        <div className="items-center px-3 py-5 md:flex md:flex-row-reverse md:justify-around md:space-x-5 md:px-5 animate slidein500">
+        <div className="items-center px-3 py-5 md:flex md:flex-row-reverse md:justify-around md:space-x-5 md:px-5 ">
           <div className="flex flex-col order-2 py-5 space-y-8 md:text-left overflow-hidden">
-            <h1 className="slidein500 text-2xl text-black md:text-4xl md:max-w-[50vw] leading-8  font-bold ">
+            <h1 className="animate-typewriter text-2xl text-black md:text-4xl md:max-w-[50vw] leading-8  font-bold ">
               How will Mentorship help you?
             </h1>
             <div className=" text-white md:max-w-[70vw] md:text-lg leading-6 md:leading-7 font-kanit ">

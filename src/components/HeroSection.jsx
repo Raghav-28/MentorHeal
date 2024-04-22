@@ -15,16 +15,16 @@ const HeroSection = () => {
           />
         </div>
         <div className="flex flex-col items-center justify-between py-8 space-y-6 lg:px-5 md:items-start lg:space-y-9">
-          <div className=" animate-typewriter flex flex-col items-center justify-between px-5 py-8 space-y-6 md:items-start lg:space-y-9 overflow-hidden"  >
-            <h1 className=" animate-typewriter text-2xl md:text-4xl lg:max-w-[40vw] leading-10 font-kanit">
-              <span className=" font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text" style={{ animationDelay: '0.3s' }}>
+          <div className="  flex flex-col items-center justify-between px-5 py-8 space-y-6 md:items-start lg:space-y-9 overflow-hidden"  >
+            <h1 className=" animate-typewriter text-2xl md:text-4xl lg:max-w-[40vw] leading-10 font-kanit overflow-hidden">
+              <span className=" font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text" style={{ animationDelay: '0.5s' }}>
                 Unlock Your True Potential:
               </span>{" "}
-            <span className="text-black" style={{ animationDelay: '.4s' }}>
+            <span className=" text-black" style={{ animationDelay: '0.3s' }}>
             Embrace Mentorship and Soar to New Heights!"
             </span>
             </h1>
-            <p className=" animate-slidein500 text-lg text-[#4a7999] md:text-xl md:max-w-[40vw] font-kanit" style={{ animationDelay: '.5s' }} >
+            <p className=" animate-typewriter text-lg text-[#4a7999] md:text-xl md:max-w-[40vw] font-kanit" style={{ animationDelay: '1s' }} >
               Together, with the guidance of mentors, we uncover the wealth of
               potential within each of us, igniting our purpose and illuminating
               the path to abundance for all..
