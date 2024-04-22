@@ -56,7 +56,7 @@ button {
 .animate-typewriter > span {
   display: inline-block;
   opacity: 0;
-  animation: typewriter 700ms ease-in-out forwards;
+  animation: typewriter 2s infinite;
 }
 
 @keyframes typewriter-up {
@@ -91,17 +91,17 @@ button {
 }
 @keyframes slide {
   0% {
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(100%);
   }
 }
 .animate-slide {
   transition-property: transform;
   transition-duration: 1000ms;
   transition-timing-function: ease-in-out;
-  animation: slide 2000ms 1 alternate;
+  animation: slide 2s  infinite;
 }
 .container:hover .content {
   opacity: 1; /* Show content on hover */

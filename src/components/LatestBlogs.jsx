@@ -32,44 +32,45 @@ const LatestBlogs = () => {
 
   return (
     <>
-      <div className="mt-32 text-center">
-        <h1 className="text-3xl font-kanit md:text-4xl">
+      <div className="mt-32 text-center overflow-hidden">
+        <h1 className="text-3xl font-kanit md:text-4xl font-semibold" >
           Latest on Your{" "}
-          <span className="font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
+          <span className=" font-kanit text-transparent bg-gradient-to-l from-[#4a7999] via-[#5b99c3] to-[#4c8db8] bg-clip-text">
             MentorHeal
           </span>{" "}
           Blog
         </h1>
       </div>
-      <section className="flex justify-center gap-20 pt-5 pb-10 bg-white flex-wrap">
-        {AllBlogs?.slice(0, 2)?.map((blog, index) => {
+      <section className="flex justify-center gap-12 pt-3 pb-8 mt-4 mb-4 bg-white flex-wrap">
+        {AllBlogs?.slice(0, 3)?.map((blog, index) => {
           return (
             <Link
               key={index}
               className="max-w-sm p-2 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
               to={`/blog/${blog.id}`}
             >
-              <div>
+              <div className="  w-80 h-96 cursor-pointer hover:shadow-md shadow-slate-50 scroll-smooth transition-transform duration-300 transform hover:scale-105 " >
                 <div>
                   <img
                     src={blog.data.image}
-                    className="rounded-md aspect-video h-64 mx-auto object-cover object-center"
+                    className="rounded-md  h-56   object-cover object-center "
                     alt={blog.data.title}
                   />
                 </div>
                 <br />
-                <div>
-                  <h1 className="font-semibold text-xl font-kanit">
+                <div className="font-semibold text-xl  font-kanit ">
+                  <h1 >
                     {blog.data.title}
                   </h1>
                 </div>
-              </div>
-              <div>
+              </div> 
+              <hr className="mt--8 h-1 bg-black" />
+              {/* <div>
                 <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
                   {blog.data.BlogSections[0].SectionPara}
                 </p>
-              </div>
-              <div className="text-[#475569]">
+              </div> */}
+              <div className="text-black ml-20  text-clip inline-block rounded-sm border-black bg bg-cyan-500 hover:bg-cyan-700">
                 {blog.data.reactions} people found it useful
               </div>
             </Link>
