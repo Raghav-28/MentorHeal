@@ -39,12 +39,12 @@ const Transformation = ({ testimonialref }) => {
   };
 
   return (
-    <section className="my-20 bg-[#4a7999]">
+    <section className="my-20 bg-gradient-to-l from-[#dbf0e5] to-[#e9d0c5]">
       <div
         className="flex flex-col items-center justify-center my-5"
         ref={testimonialref}
       >
-        <div className="text-center text-black">
+        <div className="text-center text-black ">
           <h1 className="py-4 text-3xl font-kanit md:text-4xl text-black">
             Proud Stories Of{" "}
             <span className="font-kanit   bg-clip-text  text-black">
@@ -57,14 +57,14 @@ const Transformation = ({ testimonialref }) => {
       <div className="flex items-center justify-center px-8 lg:px-3">
         <Slider
           {...settings}
-          className="w-[90vw] sm:w-[60vw] md:w-[50vw] mx-auto my-4"
+          className="w-[90vw] sm:w-[60vw] md:w-[50vw] mx-auto my-4 "
         >
           {slides.map((item, index) => {
             return (
               <React.Fragment key={index}>
-                <div className="max-w-md lg:max-w-none space-y-7 items-center">
+                <div className="max-w-md lg:max-w-none space-y-7 items-center ">
                   <img
-                    className="rounded-full h-32 w-32 ml-72 bg-cover bg-center"
+                    className="rounded-full h-32 w-32 ml-72 bg-cover bg-center border-black border-[4px]"
                     src={item.image}
                     alt={`image of person${index + 1}`}
                   />

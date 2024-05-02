@@ -91,14 +91,14 @@ const Footer = ({ Scrolltoref }) => {
                 <span className="block mb-2 text-sm text-white uppercase font-kanit">
                   Mentorheal
                 </span>
-                <ul className="text-[#dde5f1] list-unstyled space-y-4 my-6 cursor-pointer ">
-                  <li>
+                <ul className="text-[#dde5f1]   list-unstyled space-y-4 my-6 cursor-pointer ">
+                  <li className="hover:text-white">
                     <Link to={"/about"}>About Us</Link>
                   </li>
-                  <li>
+                  <li className="hover:text-white">
                     <Link to={"/how"}>How it works</Link>
                   </li>
-                  <li>
+                  <li className="hover:text-white">
                     <Link to={"/join-as-mentor"}>Join as Mentor</Link>
                   </li>
                 </ul>
@@ -110,7 +110,7 @@ const Footer = ({ Scrolltoref }) => {
                 <ul className="text-[#dde5f1] list-unstyled space-y-3 my-6 cursor-pointer">
                   {Carddata.map((item, index) => {
                     return (
-                      <li className="cursor-pointer font-kanit" key={index}>
+                      <li className="cursor-pointer font-kanit hover:text-white" key={index}>
                         {" "}
                         <Link
                           key={index}
@@ -133,10 +133,10 @@ const Footer = ({ Scrolltoref }) => {
                   Other Resources
                 </span>
                 <ul className="text-[#dde5f1] list-unstyled space-y-4 my-6 cursor-pointer">
-                  <li>Support</li>
-                  <li>Terms &amp; Conditions</li>
-                  <li>Privacy Policy</li>
-                  <li onClick={Scrolltoref} className="font-kanit">
+                  <li className="hover:text-white">Support</li>
+                  <li className="hover:text-white">Terms &amp; Conditions</li>
+                  <li className="hover:text-white">Privacy Policy</li>
+                  <li onClick={Scrolltoref} className="font-kanit hover:text-white">
                     Contact Us{" "}
                   </li>
                 </ul>
@@ -145,17 +145,17 @@ const Footer = ({ Scrolltoref }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-6 cursor-pointer [&>a]:p-1 [&>a]:bg-white [&>a]:rounded-full">
-          <a href="https://www.linkedin.com/company/mentorheal/">
+        <div className="flex items-center justify-center space-x-6 cursor-pointer [&>a]:p-1 [&>a]:bg-white [&>a]:rounded-full ">
+          <a className="hover:scale-110" href="https://www.linkedin.com/company/mentorheal/">
             <LinkedIn style={{ color: "#1DA1F2" }} fontSize="large" />
           </a>
-          <a href="https://instagram.com/mentorheal_forlife">
+          <a className="hover:scale-110" href="https://instagram.com/mentorheal_forlife">
             <Instagram style={{ color: "#C13584" }} fontSize="large" />
           </a>
-          <a href="https://x.com/MentorHeal">
+          <a className="hover:scale-110" href="https://x.com/MentorHeal">
             <FaXTwitter size={35} />
           </a>
-          <a href="https://youtube.com/@MentorHealOfficial">
+          <a className="hover:scale-110" href="https://youtube.com/@MentorHealOfficial">
             <YouTube style={{ color: "#CD201F" }} fontSize="large" />
           </a>
         </div>

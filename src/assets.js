@@ -15,15 +15,15 @@ import lg7 from "/static/team/lg7.png";
 export { lg1, lg2, lg3, lg4, lg5, lg6, lg7 };
 
 // Card Thumbs
-import Health from "/static/cards/Health.png";
-import Career from "/static/cards/Career.png";
-import Entrepreneur from "/static/cards/Entreprenuership.png";
-import Financial from "/static/cards/Financial.png";
-import Decision from "/static/cards/Decision.png";
-import Learning from "/static/cards/Learning.png";
-import Relationships from "/static/cards/Relationships.png";
-import Skills from "/static/cards/Skills.png";
-import Spirituality from "/static/cards/Spirituality.png";
+import Health from "/static/cards/health2.jpg";
+import Career from "/static/cards/career1.webp";
+import Entrepreneur from "/static/cards/Entreprenuership1.avif";
+import Financial from "/static/cards/finance1.webp";
+import Decision from "/static/cards/decision1.jpg";
+import Learning from "/static/cards/learning1.webp";
+import Relationships from "/static/cards/Relationship1.jpg";
+import Skills from "/static/cards/skills1.webp";
+import Spirituality from "/static/cards/Spirituality1.jpeg";
 
 export {
   Health,
