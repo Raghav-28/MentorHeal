@@ -47,7 +47,7 @@ const TeamCard = () => {
           return (
             <div
               key={index}
-              className="max-w-md rounded-md mx-auto cursor-pointer px-4 border-[3px] border-black shadow-md shadow-cyan-500 hover:shadow-cyan-700 hover:shadow-lg ease-in-out duration-300 bg-cyan-500 hover:scale-105"
+              className="max-w-md rounded-md mx-auto cursor-pointer px-4 border-[3px] border-black shadow-md shadow-[#CDE8E5] hover:shadow-slate-400 hover:shadow-lg ease-in-out duration-300 bg-[#CDE8E5] hover:scale-105"
             >
               <div className="space-y-2.5 my-3 text-center">
                 <div className="text-xl font-kanit md:text-2xl text-black bg-white inline-block rounded-md ">

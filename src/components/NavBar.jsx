@@ -29,7 +29,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
   return (
     <>
       <nav
-        className={`fixed w-screen shadow-sm border bg-white text-[#8ca1b3] z-50 md:px-8 ${
+        className={`fixed w-screen shadow-sm border bg-[#EEF5FF] text-[#8ca1b3] z-50 md:px-8 ${
           scroll ? "shadow-md" : "shadow-none"
         }`}
       >
@@ -45,16 +45,16 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
               <img src={mainLogo} className="w-52" alt="" />
             </Link>
           </div>
-          <div className="items-center hidden lg:flex">
+          <div className="items-center hidden lg:flex bg-">
             <ul className="flex flex-row items-center mr-6 space-x-6 list-none md:text-md  ">
-              <li className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110">
+              <li className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110">
                 <Link to="/">Home</Link>
               </li>
               {/* dropdown web..... */}
               <div className="flex flex-col">
                 <li
                   onMouseEnter={() => setdropdown(!dropdown)}
-                  className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110"
+                  className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110"
                 >
                   Categories
                 </li>
@@ -71,7 +71,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                     {Carddata.map((item, index) => {
                       return (
                         <li
-                          className=" duration-300 ease-in-out cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110"
+                          className=" duration-300 ease-in-out cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110"
                           key={index}
                         >
                           {" "}
@@ -93,11 +93,11 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                 </div>
               </div>
 
-              <li className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110">
+              <li className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110">
                 <Link to={"/how"}> How it works </Link>
               </li>
 
-              <li className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110">
+              <li className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110">
                 <Link to="/mentors">Mentors</Link>
               </li>
 
@@ -107,7 +107,7 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   onMouseEnter={() => {
                     setMore(!more);
                   }}
-                  className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110"
+                  className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110"
                 >
                   More
                 </li>
@@ -120,10 +120,10 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   } absolute bg-white shadow-md p-2 mt-3 rounded-lg`}
                 >
                   <ul className="grid grid-cols-2 gap-3 p-3 ">
-                    <li className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110">
+                    <li className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110">
                       <Link to="/blog">Blog</Link>
                     </li>
-                    <li className="cursor-pointer hover:bg-[#5e8ab4] text-black rounded-sm   transition-transform hover:scale-110">
+                    <li className="cursor-pointer hover:bg-[#7AB2B2] text-black rounded-sm   transition-transform hover:scale-110">
                       <Link to="/about">About us</Link>
                     </li>
                   </ul>
@@ -146,6 +146,9 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   <Link to="/join-as-mentor">Join as Mentor</Link>
                 </li>
               )}
+              <li className="cursor-pointer bg-[#4a7999] opacity-95 hover:opacity-100 px-6 py-2 rounded-full text-white">
+                  <Link to="https://community.mentorheal.com/">Join Our Community</Link>
+                </li>
             </ul>
           </div>
 
@@ -245,9 +248,9 @@ const NavBar = ({ Scrolltoref, Scrolltotestimonial }) => {
                   <p value="cursor-pointer transition ease-in-out duration-300">
                     <Link to={"/blog"}>Blog</Link>
                   </p>
-                  {/* <p value="cursor-pointer transition ease-in-out duration-300">
-                    <Link to={"/community"}>community</Link>
-                  </p> */}
+                  <p value="cursor-pointer transition ease-in-out duration-300">
+                    <Link to={"https://community.mentorheal.com/"}>community</Link>
+                  </p>
                 </div>
               </ul>
             </div>

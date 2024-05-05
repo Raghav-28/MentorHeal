@@ -14,7 +14,7 @@ const Carddata = [
   {
     image: Health,
     Title: "Health",
-    para: "We believe in the power of holistic growth and development. From personal and professional growth.",
+    para: "We believe in the power of holistic growth & development. From personal & professional growth.",
     Blog: [
       {
         title: "PHYSICAL FITNESS",
@@ -220,7 +220,7 @@ const Carddata = [
   {
     image: Skills,
     Title: "Skills",
-    para: "Developing new skills and working on existing ones leads to increased self-confidence and personal growth.",
+    para: "Developing new skills and working on existing ones leads to self-confidence and personal growth.",
     Blog: [
       {
         title: "COMMUNICATION",
@@ -304,7 +304,7 @@ const Carddata = [
   {
     image: Decision,
     Title: "Decisions",
-    para: "Making informed and deliberate decisions helps individuals achieve their goals and live the life they desire.",
+    para: "Making  deliberate decisions helps individuals achieve their goals and live the life they desire.",
     Blog: [
       {
         title: "SOCIAL MEDIA",
@@ -422,7 +422,7 @@ const Carddata = [
   {
     image: Financial,
     Title: "Financial Literacy",
-    para: "Understanding how to manage and grow personal finances is essential for financial security and stability.",
+    para: "Understanding how to manage & grow personal finances is essential for financial security & stability.",
     Blog: [
       {
         title: "SAVINGS",

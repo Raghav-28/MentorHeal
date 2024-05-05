@@ -39,7 +39,7 @@ const Steps = () => {
             return (
               <div
                 key={i}
-                className="flex flex-col hover:shadow-md shadow-black ease-in-out duration-300 lg:items-start mx-auto space-y-3 md:w-64 lg:w-72 border-[1px] rounded-lg border-slate-300 p-3.5 w-full  bg-cyan-500 hover:scale-105"
+                className="flex flex-col hover:shadow-md shadow-black ease-in-out duration-300 lg:items-start mx-auto space-y-3 md:w-64 lg:w-72 border-[1px] rounded-lg border-slate-300 p-3.5 w-full  bg-[#CDE8E5] hover:scale-105"
               >
                 <div className="mx-auto ">
                   <img
@@ -52,7 +52,7 @@ const Steps = () => {
                   <p className="text-lg text-[#000000] font-kanit font-semibold">
                     {item.title}
                   </p>
-                  <p className="text-sm font-kanit text-[white] leading-6">
+                  <p className="text-sm font-kanit text-[#4D869C] leading-6">
                     {item.para}
                   </p>
                 </div>

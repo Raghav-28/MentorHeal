@@ -49,7 +49,7 @@ const LatestBlogs = () => {
               className="max-w-sm p-2 space-y-2 cursor-pointer md:max-w-md lg:max-w-lg"
               to={`/blog/${blog.id}`}
             >
-              <div className="  w-80 h-96 cursor-pointer hover:shadow-md shadow-slate-50 scroll-smooth transition-transform duration-300 transform hover:scale-105 " >
+              <div className="  w-80 h-96 cursor-pointer bg-[#EEF5FF] hover:shadow-md shadow-slate-50 scroll-smooth transition-transform duration-300 transform ronded-md hover:scale-105 " >
                 <div>
                   <img
                     src={blog.data.image}
@@ -70,7 +70,7 @@ const LatestBlogs = () => {
                   {blog.data.BlogSections[0].SectionPara}
                 </p>
               </div> */}
-              <div className="text-black ml-20  text-clip inline-block rounded-sm border-black bg bg-cyan-500 hover:bg-cyan-700">
+              <div className="text-black ml-20  text-clip inline-block rounded-sm border-black  bg-[#EEF5FF] ">
                 {blog.data.reactions} people found it useful
               </div>
             </Link>
@@ -79,7 +79,7 @@ const LatestBlogs = () => {
       </section>
       <div className="flex justify-center">
         <Link to="/blog">
-          <button className="py-3 text-white px-9 bg-[#4a7999] rounded-3xl font-kanit">
+          <button className="py-3 text-white px-9 bg-[#4a7999] rounded-3xl hover:bg-[#EEF5FF] hover:text-black border-black border-[2px] font-kanit">
             Read More Articles
           </button>
         </Link>

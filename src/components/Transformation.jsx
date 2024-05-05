@@ -64,7 +64,7 @@ const Transformation = ({ testimonialref }) => {
               <React.Fragment key={index}>
                 <div className="max-w-md lg:max-w-none space-y-7 items-center ">
                   <img
-                    className="rounded-full h-32 w-32 ml-72 bg-cover bg-center border-black border-[4px]"
+                    className="rounded-full h-32 w-32 lg:ml-80 bg-cover bg-center sm:ml-36 md:ml-56 border-black border-[4px]"
                     src={item.image}
                     alt={`image of person${index + 1}`}
                   />

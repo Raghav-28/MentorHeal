@@ -64,11 +64,11 @@ const Blogs = () => {
                   </div>
                 </div>
                 <div>
-                  <p className="text-justify text-gray-700 text-ellipsis line-clamp-3">
+                  <p className="text-justify  text-ellipsis line-clamp-3">
                     {blog.data.BlogSections[0].SectionPara}
                   </p>
                 </div>
-                <div className="text-[#475569]">
+                <div className="text-[#EEF5FF]">
                   {blog.data.reactions} people found it useful
                 </div>
               </Link>
