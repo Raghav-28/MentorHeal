@@ -64,14 +64,14 @@ const Transformation = ({ testimonialref }) => {
               <React.Fragment key={index}>
                 <div className="max-w-md lg:max-w-none space-y-7 items-center ">
                   <img
-                    className="rounded-full h-32 w-32 lg:ml-80 bg-cover bg-center sm:ml-36 md:ml-56 border-black border-[4px]"
+                    className="rounded-full h-32 w-32 lg:ml-80 bg-cover bg-center sm:ml-36 md:ml-56  ml-40 border-black border-[4px]"
                     src={item.image}
                     alt={`image of person${index + 1}`}
                   />
                   <p className="text-black leading-7 text-center lg:text-left font-kanit">
                     {item.story}
                   </p>
-                  <h1 className=" justify-centre m-auto text-center align-center text-clip text-white bg-black font-kanit my-3.5 lg:text-xl inline-block ml-72">
+                  <h1 className=" justify-centre m-auto text-center align-center text-clip text-white bg-black font-kanit my-3.5 lg:text-xl inline-block lg:ml-80 sm:ml-36 md:ml-56  ml-40">
                     {item.name}
                   </h1>
                 </div>

@@ -71,7 +71,7 @@ export { onboardingBg, slider1, slider2, slider3 };
 
 // MISC
 import spinner from "/static/misc/spinner.gif";
-import heroImage from "/static/misc/hero.jpg";
+import heroImage from "/brand/Coverimag1.png";
 import ourMissionImage from "/static/misc/our-mission.jpg";
 import ourVisionImage from "/static/misc/our-vision.jpg";
 import pro1 from "/static/misc/pro1.png";
