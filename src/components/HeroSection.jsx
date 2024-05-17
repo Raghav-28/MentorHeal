@@ -19,21 +19,21 @@ const HeroSection = () => {
               Navigate Your Path to Greatness with the Guidance of Mentorship
             </span>
           </h1>
-          <p className="hero-paragraph text-3xl   text-black mb-08 sm:text-x1 md:text-xs lg:text-lg xl:text-3xl">
+          <p className="hero-paragraph text-3xl   text-black   mb-08 sm:text-x1  lg:text-3x1 xl:text-3xl">
             Together, with the guidance of mentors, we uncover the wealth of
             potential within each of us, igniting our purpose and illuminating
             the path to abundance for all.
           </p>
-          <div className="flex flex-col md:flex-row justify-center space-y-4 mt-12 md:space-x-8   ">
+          <div className=" flex justify-center space-x-8 mt-24 ">
           <Link
             to="/mentors"
-            className="hero-button bg-slate-400 border-2 border-slate-400 rounded-lg px-6 py-3 text-md font-semibold transition duration-300 ease-in-out hover:bg-opacity-80 hover:text-white hover:border-transparent"
+            className=" h-20 w-56 px-1 py-8 bg-slate-400 border-2 border-slate-400 rounded-lg  text-md font-semibold transition duration-300 ease-in-out hover:bg-opacity-80 hover:text-white hover:border-transparent"
           >
             Meet the Amazing Mentors
           </Link>
           <Link
             to="/how"
-            className="hero-button bg-slate-400 border-2 border-slate-400 rounded-lg px-6 py-3 text-md font-semibold transition duration-300 ease-in-out hover:bg-opacity-80 hover:text-white hover:border-transparent"
+            className=" h-20 w-36 bg-slate-400 border-2 px-1 py-8 border-slate-400 rounded-lg  text-md font-semibold transition duration-300 ease-in-out hover:bg-opacity-80 hover:text-white hover:border-transparent"
           >
             See How 
           </Link>

@@ -107,30 +107,6 @@ button {
   opacity: 1; /* Show content on hover */
 }
 
-/* HeroSection.css */
-
-.hero-section {
-  position: relative;
-}
-
-.hero-image {
-  width: 100%;
-  filter: blur(5px); /* Adjust blur strength as needed */
-}
-
-.content-container {
-  padding: 2rem;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .animate-fade-in {
   animation: fade-in 0.5s ease-in-out forwards;
 }
@@ -138,6 +114,12 @@ button {
 
 .hero-section {
   position: relative;
+}
+@media screen and (max-width: 400px) {
+.hero-paragraph
+   {
+    color: white;
+  }
 }
 
 .hero-image {

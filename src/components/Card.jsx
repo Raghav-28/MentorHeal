@@ -18,7 +18,7 @@ const Card = () => {
           >
             <div className="flex justify-center w-96 h-96  ease-in-out rounded-lg cursor-pointer hover:shadow-md shadow-slate-50 scroll-smooth transition-transform duration-300 transform hover:scale-105 ">
               <div
-                className="  border-[2px] border-black rounded-lg flex flex-col items-center  bg-[#EEF7FF] hover:bg-[#CDE8E5] shadow-lg hover:shadow-xl  hover:shadow-gray-300 bg-cover bg-center  ">
+                className=" border-2 border-black rounded-lg flex flex-col items-center  bg-[#EEF7FF]  shadow-lg hover:shadow-xl  hover:shadow-gray-300 bg-cover bg-center  ">
                   <div>
                   <img
                   src={item.image}
@@ -29,7 +29,7 @@ const Card = () => {
                   <h1 className="text-3xl text-center  font-kanit  text-[black] border-cyan-500 rounded-md">
                     {item.Title}
                   </h1>
-                  <p className="text-left ml-2 mt-[-2] lg:h-20 text-[#7AB2B2] font-kanit leading-5 font-semibold">
+                  <p className="text-center ml-2 mt-[-2] lg:h-20 text-[#7AB2B2] font-kanit leading-5 font-semibold">
                     {item.para}
                   </p>
                   <p className="cursor-pointer text-xl text-center w-32 mt-2 text-black  font-kanit bg-[#EEF5FF]  hover:bg-[#7AB2B2] border-[2px] border-black border-solid rounded-2xl">
